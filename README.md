@@ -4,7 +4,7 @@
 
 ## 当前进度
 
-数据索引、审核报告、复现脚本和可直接读取的工作集已归档。全量原始材料的分卷传输正在进行，完成状态以 Releases 中的 `UPLOAD_VERIFIED.json` 为准。模型尚待训练，正式终点、标签聚合和验证划分仍需冻结。
+数据索引、审核报告、复现脚本、可直接读取的工作集及全量原始材料均已归档。完整性检查结果见 `verification/remote_verification.json` 和 Releases 中的 `UPLOAD_VERIFIED.json`。模型尚待训练，正式终点、标签聚合和验证划分仍需冻结。
 
 ## 数据入口
 
@@ -21,6 +21,8 @@
 | `scripts/restore_snapshot.py` | 从 Releases 还原文件并逐个核对 SHA-256 |
 
 Pandas 可直接读取 `.csv.gz`。同一分子可能有多个来源标签，记录条数、分子图数量及独立实验次数应按各阶段报告的定义区分。
+
+完整归档下载见 [数据快照 Release](https://github.com/1280602962-debug/bRo5-ADME-Prediction/releases/tag/data-snapshot-20261118)。独立检查已确认 176 个数据分卷的服务器端 SHA-256，以及三个直接读取工作集文件的 Git 内容哈希。旧传输包的 1,511 个文件与已归档原文件逐一 SHA-256 一致。
 
 ## 全量快照
 

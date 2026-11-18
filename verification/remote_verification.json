@@ -1,0 +1,12 @@
+{
+  "Status": "PASS",
+  "Repository": "1280602962-debug/bRo5-ADME-Prediction",
+  "Commit": "fb678ecd0979cefb00f21c09074c68e8bc760f1c",
+  "Logical_source_files": 1686,
+  "Release_assets": 187,
+  "Verified_data_asset_digests": 176,
+  "Curated_git_files_verified": 3,
+  "Portable_parts": 170,
+  "Official_parts": 6,
+  "Unrelated_project_paths": 0
+}
