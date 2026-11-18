@@ -1,0 +1,24 @@
+{
+  "point_graphs": 34140,
+  "point_occurrences": 66761,
+  "MW_GT500": 15687,
+  "MW_GT500_NONMACRO": 5674,
+  "MW_GT500_MACRO": 10013,
+  "all_source_keys": 3607,
+  "source_key_kinds": {
+    "CITATION": 29,
+    "CYC_SOURCE": 52,
+    "DOI": 3513,
+    "PATENT": 12,
+    "UNRESOLVED_URI": 1
+  },
+  "priority31": 31,
+  "additional_conflict_papers": 4,
+  "source_tag_sets_overlap": {
+    "CYCPEPT_SOURCE__PROTAC_SOURCE": 0,
+    "CYCPEPT_SOURCE__NPMMP_SOURCE": 50,
+    "NPMMP_SOURCE__PROTAC_SOURCE": 0
+  },
+  "stereo_unspecified_graphs": 9459,
+  "limits": "Not final chemical-entity or model-ready molecule counts; only the existing point-candidate layer; bound-only structures not included."
+}
