@@ -6,6 +6,7 @@ on:
       - snapshot/UPLOAD_COMPLETE.json
 permissions:
   contents: write
+  actions: write
 jobs:
   archive:
     runs-on: ubuntu-latest
@@ -16,4 +17,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          OFFICIAL_RANGE_DOWNLOAD: '1'
         run: python scripts/publish_snapshot.py
+      - name: Stop superseded source-mirroring jobs
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/${{ github.repository }}/actions/runs/44279387394/cancel || true
+          gh api --method POST repos/${{ github.repository }}/actions/runs/44282234705/cancel || true
