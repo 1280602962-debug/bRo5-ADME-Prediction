@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import subprocess
+import time
 import urllib.request
 
 TAG = "data-snapshot-20261118"
@@ -34,6 +35,11 @@ for item in ([] if bootstrap else parts):
     assert path.stat().st_size == item["Bytes"], path.name
     assert sha256(path) == item["SHA256"], path.name
 print("Project archive chunk checks passed", flush=True)
+supplement_checksums = ROOT / "snapshot" / "supplement_checksums.json"
+if supplement_checksums.exists():
+    for item in json.loads(supplement_checksums.read_text()):
+        path = ROOT / item["Path"]
+        assert path.stat().st_size == item["Bytes"] and sha256(path) == item["SHA256"], path.name
 if gh("release", "view", TAG, check=False).returncode:
     gh("release", "create", TAG, "--target", os.environ["GITHUB_SHA"],
        "--title", "Complete bRo5 permeability data snapshot — 2026-11-18",
@@ -48,11 +54,24 @@ for name in ["snapshot_manifest.csv", "snapshot_summary.json", "portable_checksu
 gh("release", "upload", TAG, ROOT / "scripts" / "restore_snapshot.py", "--clobber")
 for supplement in (ROOT / "archives").glob("*.zip"):
     gh("release", "upload", TAG, supplement, "--clobber")
+if supplement_checksums.exists():
+    gh("release", "upload", TAG, supplement_checksums, "--clobber")
 
 official_assets = []
 existing = gh("release", "view", TAG, "--json", "assets")
 existing_assets = {item["name"]: item for item in json.loads(existing.stdout)["assets"]}
 official_done = "official_asset_checksums.json" in existing_assets
+if not bootstrap and not official_done:
+    for attempt in range(240):
+        print("Waiting for separately verified official archives", attempt + 1, flush=True)
+        time.sleep(30)
+        existing = gh("release", "view", TAG, "--json", "assets")
+        existing_assets = {item["name"]: item for item in json.loads(existing.stdout)["assets"]}
+        official_done = "official_asset_checksums.json" in existing_assets
+        if official_done:
+            break
+    if not official_done:
+        raise RuntimeError("Official source archives are still pending; retry after their mirror workflow completes")
 if official_done:
     gh("release", "download", TAG, "--pattern", "official_asset_checksums.json", "--dir", ROOT, "--clobber")
     official_assets = json.loads((ROOT / "official_asset_checksums.json").read_text())

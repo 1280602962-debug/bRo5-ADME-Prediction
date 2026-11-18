@@ -1,0 +1,22 @@
+[
+  {
+    "Path": "archives/bRo5_molecule_data_literature_inventory_20261118.zip",
+    "Bytes": 1710161,
+    "SHA256": "2f0b7f3f3b9bb7eaefbc0873f8d8b108cd67a274a7f067c18168b6b6e6a9c1fa"
+  },
+  {
+    "Path": "data/curated/working_graph_study_labels.csv.gz",
+    "Bytes": 1144999,
+    "SHA256": "6c6e80e35acf33665907feb99503847e9ff3221605c2411f4436e89a061541b5"
+  },
+  {
+    "Path": "data/curated/split_eligible_working_labels.csv.gz",
+    "Bytes": 1064269,
+    "SHA256": "4735c01e9fb695e7b6a4a914ed4760fbdbc6727cd18d2bc83f8daf0c13200d5e"
+  },
+  {
+    "Path": "data/curated/molecule_groups.csv.gz",
+    "Bytes": 2910563,
+    "SHA256": "ebeec1439336123bdd71bc9fe3159bc430bbe0b2eea582f3b2ad6a53430d333d"
+  }
+]
