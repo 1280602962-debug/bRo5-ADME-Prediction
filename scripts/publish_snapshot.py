@@ -56,8 +56,12 @@ for record in ([] if official_done else json.loads((SNAPSHOT / "official_databas
     name = Path(record["Path"]).name
     download = ROOT / name
     print("Downloading official archive", name, flush=True)
-    subprocess.run(["curl", "--fail", "--location", "--retry", "5", "--retry-all-errors",
-                    "--output", str(download), record["URL"]], check=True)
+    if os.environ.get("OFFICIAL_RANGE_DOWNLOAD") == "1":
+        from range_download import download as download_ranges
+        download_ranges(record["URL"], download, int(record["Bytes"]), TAG)
+    else:
+        subprocess.run(["curl", "--fail", "--location", "--retry", "5", "--retry-all-errors",
+                        "--output", str(download), record["URL"]], check=True)
     assert download.stat().st_size == int(record["Bytes"]), name
     assert sha256(download) == record["SHA256"], name
     print("Official archive matches local fingerprint", name, flush=True)

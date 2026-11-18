@@ -1,0 +1,20 @@
+name: Archive official sources with range verification
+on:
+  push:
+    paths:
+      - snapshot/OFFICIAL_RANGE_READY.json
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror and verify official sources by byte ranges
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          BOOTSTRAP_OFFICIAL: '1'
+          OFFICIAL_RANGE_DOWNLOAD: '1'
+        run: python scripts/publish_snapshot.py
