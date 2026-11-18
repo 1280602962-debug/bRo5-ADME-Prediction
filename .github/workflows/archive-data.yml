@@ -1,0 +1,19 @@
+name: Assemble verified project data
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - snapshot/UPLOAD_COMPLETE.json
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and publish data assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/publish_snapshot.py
