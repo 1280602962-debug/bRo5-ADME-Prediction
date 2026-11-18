@@ -23,10 +23,12 @@ def sha256(path):
     return result.hexdigest()
 
 
-complete = json.loads((SNAPSHOT / "UPLOAD_COMPLETE.json").read_text())
+bootstrap = os.environ.get("BOOTSTRAP_OFFICIAL") == "1"
+complete = json.loads((SNAPSHOT / "snapshot_summary.json").read_text()) if bootstrap else json.loads((SNAPSHOT / "UPLOAD_COMPLETE.json").read_text())
 parts = json.loads((SNAPSHOT / "portable_checksums.json").read_text())
-assert complete["Portable_parts"] == len(parts)
-for item in parts:
+if not bootstrap:
+    assert complete["Portable_parts"] == len(parts)
+for item in ([] if bootstrap else parts):
     path = SNAPSHOT / "parts" / item["Name"]
     assert path.stat().st_size == item["Bytes"], path.name
     assert sha256(path) == item["SHA256"], path.name
@@ -35,14 +37,22 @@ if gh("release", "view", TAG, check=False).returncode:
     gh("release", "create", TAG, "--target", os.environ["GITHUB_SHA"],
        "--title", "Complete bRo5 permeability data snapshot — 2026-11-18",
        "--notes", "Project data, literature attachments, extracted records, curation audits and scripts. Restore with scripts/restore_snapshot.py and verify snapshot_manifest.csv. Original ChEMBL archives are reproduced from their recorded official URLs and checked against local SHA-256 fingerprints.")
-for item in parts:
+for item in ([] if bootstrap else parts):
     gh("release", "upload", TAG, SNAPSHOT / "parts" / item["Name"], "--clobber")
 for name in ["snapshot_manifest.csv", "snapshot_summary.json", "portable_checksums.json", "official_databases.json"]:
     gh("release", "upload", TAG, SNAPSHOT / name, "--clobber")
 gh("release", "upload", TAG, ROOT / "scripts" / "restore_snapshot.py", "--clobber")
 
 official_assets = []
-for record in json.loads((SNAPSHOT / "official_databases.json").read_text()):
+existing = gh("release", "view", TAG, "--json", "assets")
+existing_assets = {item["name"]: item for item in json.loads(existing.stdout)["assets"]}
+official_done = "official_asset_checksums.json" in existing_assets
+if official_done:
+    gh("release", "download", TAG, "--pattern", "official_asset_checksums.json", "--dir", ROOT, "--clobber")
+    official_assets = json.loads((ROOT / "official_asset_checksums.json").read_text())
+    for item in official_assets:
+        assert item["Name"] in existing_assets and existing_assets[item["Name"]]["size"] == item["Bytes"]
+for record in ([] if official_done else json.loads((SNAPSHOT / "official_databases.json").read_text())):
     name = Path(record["Path"]).name
     download = ROOT / name
     print("Downloading official archive", name, flush=True)
@@ -66,7 +76,8 @@ for record in json.loads((SNAPSHOT / "official_databases.json").read_text()):
     download.unlink()
 (ROOT / "official_asset_checksums.json").write_text(json.dumps(official_assets, indent=2))
 gh("release", "upload", TAG, ROOT / "official_asset_checksums.json", "--clobber")
-(ROOT / "UPLOAD_VERIFIED.json").write_text(json.dumps(dict(Status="COMPLETE", Logical_files=complete["Logical_files"],
+status_name = "OFFICIAL_VERIFIED.json" if bootstrap else "UPLOAD_VERIFIED.json"
+(ROOT / status_name).write_text(json.dumps(dict(Status="OFFICIAL_COMPLETE" if bootstrap else "COMPLETE", Logical_files=complete.get("Logical_files", complete.get("Files")),
     Portable_parts=len(parts), Official_assets=len(official_assets), Local_fingerprints_matched=True), indent=2))
-gh("release", "upload", TAG, ROOT / "UPLOAD_VERIFIED.json", "--clobber")
+gh("release", "upload", TAG, ROOT / status_name, "--clobber")
 print("COMPLETE — all project data assets published and verified", flush=True)

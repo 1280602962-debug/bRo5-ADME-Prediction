@@ -1,0 +1,19 @@
+name: Archive official ChEMBL sources
+on:
+  push:
+    paths:
+      - snapshot/OFFICIAL_UPLOAD_READY.json
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror and verify official source archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          BOOTSTRAP_OFFICIAL: '1'
+        run: python scripts/publish_snapshot.py
