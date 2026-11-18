@@ -1,0 +1,7 @@
+Split_mode,Identity,Cross_partition_conflicts,Status
+SC,Graph_ID,0,PASS
+SC,Study_key,0,PASS
+SC,Scaffold_connectivity_group,0,PASS
+FP06,Graph_ID,0,PASS
+FP06,Study_key,0,PASS
+FP06,Scaffold_FP06_component,0,PASS

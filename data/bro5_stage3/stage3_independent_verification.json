@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "point_occurrences": 66761,
+  "point_graphs": 34140,
+  "nonpoint_or_held_occurrences": 10,
+  "modified_occurrences": 7,
+  "checks": "Occurrence conservation, exact recount, bound inequality reversal, point removal, atom-fragment correction, post-correction graph/source/group partition separation",
+  "limits": "Primary numeric verification is distinct from full atom identity, replicate-event reconstruction and full scheme completion."
+}

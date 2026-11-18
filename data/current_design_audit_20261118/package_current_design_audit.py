@@ -1,0 +1,111 @@
+from pathlib import Path
+import json
+import shutil
+import zipfile
+
+import pandas as pd
+
+root = Path(__file__).resolve().parent
+folder = root / "current_design_audit_20261118"
+counts = pd.read_csv(folder / "cohort_counts.csv")
+labels = pd.read_csv(folder / "working_graph_study_labels.csv", keep_default_na=False)
+folds = pd.read_csv(folder / "split_feasibility.csv")
+verification = json.loads((folder / "independent_verification.json").read_text())
+assert verification["Status"] == "PASS"
+
+
+def table(headers, rows):
+    return "\n".join(["| " + " | ".join(map(str, headers)) + " |",
+                      "| " + " | ".join(["---"] * len(headers)) + " |"] +
+                     ["| " + " | ".join(map(str, row)) + " |" for row in rows])
+
+
+rows = []
+for task in ["PAMPA:DIRECTION_NOT_APPLICABLE", "Caco-2:AB"]:
+    for top, weight in [("NONMACRO_SCREEN", "LE500"), ("NONMACRO_SCREEN", "GT500_LE700"),
+                        ("NONMACRO_SCREEN", "GT700"), ("MACRO_SCREEN", "GT500_LE700"),
+                        ("MACRO_SCREEN", "GT700")]:
+        part = counts[(counts.Task == task) & (counts.Topology == top) & (counts.MW_bin == weight)].set_index("Layer")
+        final = part.loc["WORKING_CONSERVATIVE"]
+        rows.append([task.split(":")[0], top.replace("_SCREEN", ""), weight,
+                     part.loc["RAW_POINT", "Structures"], part.loc["TRACEABLE_TASK", "Structures"],
+                     final.Structures, final.Studies, final.SC_groups, final.FP06_components])
+cohort_table = table(["终点", "拓扑筛选", "MW/Da", "原点值结构", "终点及来源可识别", "保守工作集结构", "来源标识数", "SC组", "FP06组"], rows)
+rows = []
+for (task, experiment, variant), d in folds[folds.Split == "SOURCE_FP06"].groupby(["Task", "Experiment", "Variant"]):
+    rows.append([task.split(":")[0], experiment, variant,
+                 f"{d.Test_graphs.min()}–{d.Test_graphs.max()}",
+                 f"{d.Test_studies.min()}–{d.Test_studies.max()}",
+                 f"{d.MW_matched_capacity.min()}–{d.MW_matched_capacity.max()}"])
+split_table = table(["终点", "测试范围", "大环来源处理", "每折测试结构", "每折测试来源", "每类新增样本分子量配平容量"], rows)
+text = f"""# 当前研究设计的数据可用性核查
+
+2026年11月18日
+
+**判断为规模支持开展文章研究，当前导出物属于可复核的建模工作集。发表所需的终点定义、重复值处理和验证划分仍需冻结。** 本轮已经完成逐记录决策、结构及来源计数、保守冲突暂缓、五折划分可行性和独立复算。模型性能尚待计算。
+
+**核查对象与计数口径**
+
+输入为第三阶段修订后的66,761条点值出现记录，涉及34,140个不同Graph_ID。一个Graph_ID对应当前规范化的分子图表示。同一样品在不同数据库中出现可产生多条记录，来源未解决的立体表示也可能对应同一样品，因此不得把总出现次数或全部图表示直接称为独立实验、独立实物分子。
+
+主分析终点选择PAMPA通用渗透性标签和Caco-2 A→B。PAMPA中的已标记intrinsic与apparent子任务独立保留。MDCK各亚型、RRCK、LLC-PK1及Caco-2 B→A等记录见all_endpoint_inventory.csv。它们可供后续独立任务研究，本轮正式规模仅核查两个主终点。
+
+原点值结构数允许数据库提供的来源字段暂缺。终点及来源可识别层采用现有Split_eligible标记。保守工作集进一步应用下述明确规则。每格是终点内去重的Graph_ID数，同一图可在两个终点出现，跨终点直接相加会重复。
+
+{cohort_table}
+
+拓扑沿用前期RDKit最大环大小≥12的计算筛选。NONMACRO表示未命中这一筛选。肽类、天然产物、PROTAC等进一步类别需要额外结构注释，当前不能把所有NONMACRO都称为PROTAC。
+
+**本轮采用的可逆处理决定**
+
+1. 暂缓已有10组同研究同名样品身份冲突涉及的20个图表示。它们需要定点核实来源中的化合物编号、结构及立体标注。文件targeted_review_rows.csv保留原记录。
+2. 暂缓log10(cm/s)>−3的数据，采用参考文献的上限作为本轮工作集规则。log10(cm/s)<−9的值保留原数并标注，本次没有做下限截断。下限应在正式建模时预先规定，并报告处理敏感性。
+3. 对同一Graph_ID、来源和任务下数值极差>0.5 log单位的组暂缓。PAMPA涉及179组、175个图、39个来源，Caco-2 A→B涉及67组、66个图、22个来源。0.5是本轮保守敏感性规则，不能视作统一质量标准，也不能据此认定原实验有误。组内差别可能来自协议、不同系数或单位等，需先解释差别再恢复使用。
+4. ChEMBL数据集存储DOI 10.6019/chembl3431459在初步工作集中涉及389个图。它标识一个数据集，不能自动等同一篇原研究。将该来源单列后，PAMPA 500–700 Da非大环候选保守规模从886降到770。若补回底层来源，可按同一预设规则重新纳入。
+5. 对工作集内同图同来源同任务，先按小数点后6位log值合并数值拷贝签名，再对剩余不同数值计算线性尺度均值，导出为一个暂定标签。它是一项可复算的工作规则。协议与重复试验的区分尚未全部解决，尤其不能把不同数值个数写成独立实验次数。后续应核实多个系数/条件并存的组，比较研究内中位数等聚合方式的敏感性。
+6. 保留已报告的立体化学和未指定手性中心标记。PAMPA 500–700 Da大环工作集1,483个图中有1,114个含未指定手性中心。这对基于三维构象或立体化学机制的解释有直接限制，当前二维模型研究应报告这一比例，并用连接关系分组避免训练测试间的立体表示重叠。
+
+**实际划分可行性**
+
+本轮新增划分专用于当前研究的可行性评估，使用SHA-256对来源标识分配五折，固定字符串20261118。全部过程没有参考预测误差。对跨多个来源折的186个任务–图组合另行暂缓，确保同一终点中每个测试图只进入一个折。这是一项可逆的划分选择，保守工作集全量标签仍完整保留。
+
+训练侧分别执行图身份、SC骨架连接关系、FP06相似性组的重叠剔除。每个模型训练与测试来源隔离。严格>700 Da测试额外从训练中移除全部>700 Da标签及所有具有>700 Da非大环测试对象的来源，训练分子限定≤700 Da。表中为最严格SOURCE_FP06划分结果。
+
+{split_table}
+
+SOURCE_GRAPH和SOURCE_SC的全部结果与每一折成员清单一并提供。FP06是沿用此前Morgan指纹Tanimoto≥0.6连通分组得到的计算标签，属于敏感性分析，不能称作实验确认的药化系列。
+
+在来源/图跨折冲突处理后，可覆盖的高分子量非大环测试对象为PAMPA 916个图、200个来源标识，Caco-2 A→B 703个图、207个来源标识。其中>700 Da分别为151个图/40个来源和101个图/36个来源。同一来源可含多个骨架，来源数量也不等同独立实验室数量。
+
+按四个50 Da区间进行大环/非大环分子量配平，即(500,550]、(550,600]、(600,650]和(650,700]。容量按每区间两类可用图数的较小值求和。主测试保留最大大环来源时PAMPA每折可配平97–573个/类，Caco-2为114–207个/类。移除最大大环来源后分别为72–123和82–114个/类。为使全部折及两种来源处理均可比较，目前支持采用每类新增25、50个标签的共同预算。增加样本预算须在各折达到相同可用条件时再确定。
+
+PAMPA每折可用常规分子量非大环训练池最少1,644个，Caco-2最少1,218个，可在相同测试与划分下抽取共同基础训练集以及额外小分子对照。当前容量尚未证明任一新增数据策略能改善预测。
+
+**影响发表质量的具体问题**
+
+PAMPA 500–700 Da大环工作集1,483个图，最大来源贡献1,353个，约91.2%。这是与主对照直接相关的分母，和之前按所有>500 Da大环统计的约81%口径不同。大环标签应分别报告全来源和去掉最大来源的同预算结果，训练样本数与独立化学组数同时报告。
+
+Caco-2已标明A→B方向，但现有记录仍混有抑制剂信息明确、描述含抑制剂线索以及未报告状态。正式任务可定义为公开来源Caco-2 A→B表观渗透性，并做抑制剂条件敏感性。若目标定义为被动渗透性，就需要更窄的条件。PAMPA也应检查Peff、Papp、P0等系数标注，避免仅按数据库大类合并。
+
+>700 Da测试每折Caco-2只有3–44个图，适合总体来源分组误差及探索性外推分析。来源哈希五折并不保证样本均衡，正式划分可以按来源组规模做预先规定的平衡分配。需要先冻结规则，再比较模型。
+
+发表数据集应提供定义明确的终点、可复现的结构与标签处理、适用范围、来源/化学隔离验证及相应预测结果。OECD QSAR验证原则可作为方法学参照，其本身用于监管验证，并非期刊录用标准，也未规定本文必须达到某个统一分子数。[OECD原则](https://www.oecd.org/content/dam/oecd/en/topics/policy-sub-issues/assessment-of-chemicals/oecd-principles-for-the-validation-for-regulatory-purposes-of-quantitative-structure-activity-relationship-models.pdf)
+
+当前数据支持一篇以公开数据训练集组成和样本效率为主题的计算研究。待完成的是冻结终点及聚合规则、解决优先级较高的冲突来源、确定正式验证划分、计算模型和统计区间。可优先按39篇PAMPA来源和22篇Caco-2来源中的冲突组定点核查，部分来源两终点重叠。全量逐分子原文审核不作为当前设计的开工条件。
+
+**交付内容与复现**
+
+occurrence_decisions.csv逐行给出纳入状态和原因，working_graph_study_labels.csv提供结构、任务、暂定标签、来源与计算组。cross_source_fold_graphs.csv记录本轮划分暂缓对象，split_eligible_working_labels.csv为划分工作集，split_membership.csv为训练/测试成员，split_feasibility.csv逐折记录可用容量。independent_verification.json保留复算结果和输入SHA-256。
+
+运行audit_current_design.py后运行verify_current_design_audit.py，再运行package_current_design_audit.py可重建报告与压缩包。输入路径按当前项目bro5_stage2和bro5_stage3布局读取。独立检查涵盖逐记录守恒、标签线性均值复算、训练测试来源与化学组隔离、严格分子量边界以及同图唯一测试折。本轮检查全部通过。
+"""
+(folder / "数据可用性核查报告.md").write_text(text, encoding="utf-8")
+for name in ["audit_current_design.py", "verify_current_design_audit.py", "package_current_design_audit.py"]:
+    shutil.copyfile(root / name, folder / name)
+archive = root / "bRo5_current_design_data_audit_20261118.zip"
+with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
+    for path in sorted(folder.iterdir()):
+        if path.is_file():
+            bundle.write(path, path.name)
+print(str(archive))
+print("ZIP_bytes", archive.stat().st_size)

@@ -1,0 +1,15 @@
+{
+  "Files": 1686,
+  "Logical_bytes": 15015151924,
+  "Unique_files": 1579,
+  "Unique_bytes": 14993598183,
+  "Excluded": [
+    "collected/_transfer (redundant transport copies)",
+    "early workspace work/tmp (includes unrelated projects)",
+    "__pycache__ and .pyc"
+  ],
+  "Snapshot_complete": true,
+  "Volumes": 10,
+  "Compressed_bytes": 10033231058,
+  "Elapsed_seconds": 416
+}

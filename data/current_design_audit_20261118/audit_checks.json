@@ -1,0 +1,28 @@
+{
+  "Original_point_rows": 66761,
+  "Original_point_graphs": 34140,
+  "Working_rows": 15165,
+  "Working_graphs": 9630,
+  "Working_graph_study_labels": 10463,
+  "Cross_source_fold_task_graphs_temporarily_held": 186,
+  "Identity_conflict_graphs_total": 20,
+  "Invalid_or_radical_graphs_in_point_overlay": [],
+  "Largest_macro_500_700_source": {
+    "Caco-2:AB": "DOI:10.1038/nchembio.2203",
+    "PAMPA:DIRECTION_NOT_APPLICABLE": "DOI:10.1021/acs.jmedchem.1c02090"
+  },
+  "All_split_identity_source_and_group_checks": "PASS",
+  "Models_trained": false,
+  "Python": "3.12.7",
+  "RDKit": "2026.03.3",
+  "Decisions": {
+    "identity_conflicts": "Temporarily hold all graph representations in the existing ten named-sample conflicts",
+    "upper_bound": "Hold log10(cm/s) > -3 using reference-paper upper threshold as a provisional rule",
+    "lower_bound": "Retain original values below -9, flagged; no clipping in this audit",
+    "disagreement": "Hold graph-study-task groups with range >0.5 log units; conservative sensitivity cohort, not mandatory universal cutoff",
+    "stereo": "Retain reported stereochemistry and flag unassigned centers; use connectivity grouping for split sensitivity",
+    "protocol": "Do not require identical protocol; mixing coefficients, pH, inhibitors and ambiguous units requires endpoint-specific resolution",
+    "deposit_reference": "Hold ChEMBL deposited-dataset DOI 10.6019 from the original-study benchmark until its underlying studies are resolved",
+    "topology": "Existing RDKit ring-size >=12 screen retained; chemical classification remains computational"
+  }
+}

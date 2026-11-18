@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "source_occurrences": 66771,
+  "stage2_points": 66763,
+  "held_fields": 8,
+  "stage2_structures": 34142,
+  "verified": "Conservation; occurrence uniqueness; held-point exclusion; DOI/patent, graph and chemical-group partition separation; endpoint/scope independent recount",
+  "limits": "No primary-study full verification; no confirmed medicinal chemistry series; FP0.6 edges not independently recomputed"
+}

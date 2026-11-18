@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-18",
+  "rdkit": "2026.03.3",
+  "technical_structures": 34150,
+  "point_fields": 66771,
+  "candidate_event_signatures": 66558,
+  "confirmed_independent_events": "NOT_ESTABLISHED",
+  "confirmed_independent_series": "NOT_ESTABLISHED",
+  "reference_traceable_fields": 42469,
+  "task_defined_traceable_fields": 21431,
+  "task_defined_traceable_structures": 12289,
+  "same_study_task_value_review_groups": 675,
+  "fingerprint_pairs": 583094175,
+  "fingerprint_edges_ge06": 5460486,
+  "scaffold_connectivity_groups": 14250,
+  "fp06_components": 4549,
+  "leakage_assertions": "PASS",
+  "partitions": {
+    "SC": {
+      "SUPPLEMENT_ONLY": 45340,
+      "TRAIN": 9114,
+      "PURGED_CHEMICAL_OVERLAP": 1561,
+      "TEST": 2551,
+      "CALIBRATION": 8205
+    },
+    "FP06": {
+      "SUPPLEMENT_ONLY": 45340,
+      "TRAIN": 7494,
+      "PURGED_CHEMICAL_OVERLAP": 3278,
+      "TEST": 2551,
+      "CALIBRATION": 8108
+    }
+  },
+  "interpretation": "Pre-model technical/task/source census and proposed partitions, not final primary-validated model-ready dataset.",
+  "stage2_point_fields": 66763,
+  "stage2_point_structures": 34142,
+  "held_point_fields": 8,
+  "held_only_structures": 8
+}

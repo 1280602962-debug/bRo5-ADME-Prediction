@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "input_occurrences": 66771,
+  "primary_studies_with_targeted_evidence": 5,
+  "priority1_studies": 31,
+  "priority1_graphs": 116,
+  "changed_occurrences": 7,
+  "change_actions": {
+    "RESOLVE_GEOMETRIC_MEAN_TASK": 3,
+    "CORRECT_GRAPH_ALIAS": 1,
+    "NORMALIZE_PRIMARY_REPORTED_PRECISION": 1,
+    "POINT_TO_PRIMARY_BOUND": 2
+  },
+  "new_bound_occurrences": 2,
+  "new_bound_reported_means": 1,
+  "primary_numeric_protocol_confirmed_means": 4,
+  "primary_numeric_confirmed_occurrences": 9,
+  "named_sample_identity_conflict_groups": 10,
+  "connectivity_conflict_groups": 6,
+  "counts": [
+    {
+      "Scope": "ALL_MW",
+      "Task": "ALL_TASKS",
+      "Point_occurrences": 66761,
+      "Graph_representations": 34140,
+      "Primary_numeric_confirmed_graphs": 8,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "ALL_MW",
+      "Task": "Caco-2:AB",
+      "Point_occurrences": 8674,
+      "Graph_representations": 6145,
+      "Primary_numeric_confirmed_graphs": 0,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "ALL_MW",
+      "Task": "PAMPA:DIRECTION_NOT_APPLICABLE",
+      "Point_occurrences": 37755,
+      "Graph_representations": 19306,
+      "Primary_numeric_confirmed_graphs": 6,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "ALL_MW",
+      "Task": "Caco-2:GEOMETRIC_MEAN_AB_BA",
+      "Point_occurrences": 3,
+      "Graph_representations": 3,
+      "Primary_numeric_confirmed_graphs": 3,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT500",
+      "Task": "ALL_TASKS",
+      "Point_occurrences": 30941,
+      "Graph_representations": 15687,
+      "Primary_numeric_confirmed_graphs": 8,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT500",
+      "Task": "Caco-2:AB",
+      "Point_occurrences": 3135,
+      "Graph_representations": 2042,
+      "Primary_numeric_confirmed_graphs": 0,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT500",
+      "Task": "PAMPA:DIRECTION_NOT_APPLICABLE",
+      "Point_occurrences": 20709,
+      "Graph_representations": 10846,
+      "Primary_numeric_confirmed_graphs": 6,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT500",
+      "Task": "Caco-2:GEOMETRIC_MEAN_AB_BA",
+      "Point_occurrences": 3,
+      "Graph_representations": 3,
+      "Primary_numeric_confirmed_graphs": 3,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT700_NONMACRO",
+      "Task": "ALL_TASKS",
+      "Point_occurrences": 1511,
+      "Graph_representations": 791,
+      "Primary_numeric_confirmed_graphs": 8,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT700_NONMACRO",
+      "Task": "Caco-2:AB",
+      "Point_occurrences": 353,
+      "Graph_representations": 236,
+      "Primary_numeric_confirmed_graphs": 0,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT700_NONMACRO",
+      "Task": "PAMPA:DIRECTION_NOT_APPLICABLE",
+      "Point_occurrences": 495,
+      "Graph_representations": 339,
+      "Primary_numeric_confirmed_graphs": 6,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_GT700_NONMACRO",
+      "Task": "Caco-2:GEOMETRIC_MEAN_AB_BA",
+      "Point_occurrences": 3,
+      "Graph_representations": 3,
+      "Primary_numeric_confirmed_graphs": 3,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_700_1000_NONMACRO",
+      "Task": "ALL_TASKS",
+      "Point_occurrences": 1280,
+      "Graph_representations": 662,
+      "Primary_numeric_confirmed_graphs": 8,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_700_1000_NONMACRO",
+      "Task": "Caco-2:AB",
+      "Point_occurrences": 312,
+      "Graph_representations": 204,
+      "Primary_numeric_confirmed_graphs": 0,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_700_1000_NONMACRO",
+      "Task": "PAMPA:DIRECTION_NOT_APPLICABLE",
+      "Point_occurrences": 400,
+      "Graph_representations": 273,
+      "Primary_numeric_confirmed_graphs": 6,
+      "Final_model_ready": "NOT_FROZEN"
+    },
+    {
+      "Scope": "MW_700_1000_NONMACRO",
+      "Task": "Caco-2:GEOMETRIC_MEAN_AB_BA",
+      "Point_occurrences": 3,
+      "Graph_representations": 3,
+      "Primary_numeric_confirmed_graphs": 3,
+      "Final_model_ready": "NOT_FROZEN"
+    }
+  ],
+  "full_scheme_complete": false,
+  "final_qualified_molecules": "NOT_ESTABLISHED",
+  "reason": "Primary full-text/SI, individual source-sample identities and raw independent-event lineage remain unresolved; no model fit and no split re-optimization."
+}

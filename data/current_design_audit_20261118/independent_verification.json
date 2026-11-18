@@ -1,0 +1,23 @@
+{
+  "Status": "PASS",
+  "Retained_input_main_rows": 46429,
+  "Working_graph_study_labels": 10463,
+  "Explicit_source_identity_chemical_group_checks": 160,
+  "Recomputed_label_values": "PASS",
+  "Test_graph_assigned_to_one_fold": "PASS",
+  "Models_trained": false,
+  "Inputs": [
+    {
+      "Path": "bro5_stage3\\point_candidates_after_primary_overlay.csv",
+      "SHA256": "fcc395750bfbd482b6ffc2266c18df53bb1bd1f0fe366c4bf79b894733f5f923"
+    },
+    {
+      "Path": "bro5_stage2\\molecule_groups.csv",
+      "SHA256": "167bb932c56310370b534976f766334dd6842baad95e91fc030d9bb9c0a68223"
+    },
+    {
+      "Path": "bro5_stage3\\source_sample_identity_conflicts.csv",
+      "SHA256": "f3826ad116ddf7c1da12c33cb08f5be05d756d3c1575ed52e3590988c2bdd71d"
+    }
+  ]
+}

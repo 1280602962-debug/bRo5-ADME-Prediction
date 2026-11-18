@@ -1,0 +1,16 @@
+[
+  {
+    "Path": "collected/bRo5_Permeability_Benchmark/02_raw_data/chembl/chembl_34/chembl_34_sqlite.tar.gz",
+    "Bytes": "4859330198",
+    "SHA256": "7d40409e4f31440674a79e26db628015e82b85b056a7d8234efe9c95b6cbd8e7",
+    "Canonical_path": "collected/bRo5_Permeability_Benchmark/02_raw_data/chembl/chembl_34/chembl_34_sqlite.tar.gz",
+    "URL": "https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_34/chembl_34_sqlite.tar.gz"
+  },
+  {
+    "Path": "collected/bRo5_Permeability_Benchmark/02_raw_data/chembl/chembl_37/chembl_37_sqlite.tar.gz",
+    "Bytes": "5764252857",
+    "SHA256": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281",
+    "Canonical_path": "collected/bRo5_Permeability_Benchmark/02_raw_data/chembl/chembl_37/chembl_37_sqlite.tar.gz",
+    "URL": "https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_37/chembl_37_sqlite.tar.gz"
+  }
+]

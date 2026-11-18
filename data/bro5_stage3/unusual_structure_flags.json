@@ -1,0 +1,156 @@
+[
+  {
+    "Graph_ID": "G_11338726acd9c9d9ded2c7c5",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "342.16200000000003",
+    "SMILES": "Nc1ccc([Se][Se]c2ccc(N)cc2)cc1"
+  },
+  {
+    "Graph_ID": "G_16a91c9ba2da9e4dcc976652",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "274.181",
+    "SMILES": "O=c1c2ccccc2[se]n1-c1ccccc1"
+  },
+  {
+    "Graph_ID": "G_202e035b9d0760c62bd32811",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "409.2250000000001",
+    "SMILES": "O=c1c2cccc(C(F)(F)F)c2[se]n1-c1ccc2cccc(O)c2n1"
+  },
+  {
+    "Graph_ID": "G_2a438384fa83450519ee46e5",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "487.5020000000003",
+    "SMILES": "COc1cc2[se]n(CCCCC3CCN(Cc4ccccc4)CC3)c(=O)c2cc1OC"
+  },
+  {
+    "Graph_ID": "G_2c31ac69bf32b5093419299a",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "359.2180000000001",
+    "SMILES": "O=c1c2cccc(F)c2[se]n1-c1ccc2cccc(O)c2n1"
+  },
+  {
+    "Graph_ID": "G_305fce74133201c05b4c5e59",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "427.4140000000003",
+    "SMILES": "CC([Se]c1ccc2ccccc2c1)c1nc(N)nc(N2CCN(C)CC2)n1"
+  },
+  {
+    "Graph_ID": "G_454aa0428205414e167e85f9",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "384.3850000000001",
+    "SMILES": "CCCCC[Se]c1nc(NCc2ccccc2)c2ccccc2n1"
+  },
+  {
+    "Graph_ID": "G_49edd1ae64b99f9bdfa40ed3",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "398.2700000000001",
+    "SMILES": "CN(C)c1ccc([Se][Se]c2ccc(N(C)C)cc2)cc1"
+  },
+  {
+    "Graph_ID": "G_4b0877d42c236383274908e5",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "340.186",
+    "SMILES": "c1ccc(C[Se][Se]Cc2ccccc2)cc1"
+  },
+  {
+    "Graph_ID": "G_653e0040c55980a4a3c93a2e",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "288.07000000000005",
+    "SMILES": "[SeH]c1nc([SeH])c2ccccc2n1"
+  },
+  {
+    "Graph_ID": "G_6c1291447eea7be0a4cef047",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "473.47500000000025",
+    "SMILES": "COc1cc2[se]n(CCCC3CCN(Cc4ccccc4)CC3)c(=O)c2cc1OC"
+  },
+  {
+    "Graph_ID": "G_7a50adc3ee6108407e3eb25f",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "459.44800000000026",
+    "SMILES": "COc1cc2[se]n(CCC3CCN(Cc4ccccc4)CC3)c(=O)c2cc1OC"
+  },
+  {
+    "Graph_ID": "G_7a95910faa9d1927590f9dd4",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "357.22700000000003",
+    "SMILES": "O=c1c2cc(O)ccc2[se]n1-c1ccc2cccc(O)c2n1"
+  },
+  {
+    "Graph_ID": "G_827c09be637808fb56251040",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "409.22500000000014",
+    "SMILES": "O=c1c2c(C(F)(F)F)cccc2[se]n1-c1ccc2cccc(O)c2n1"
+  },
+  {
+    "Graph_ID": "G_a140d4bd54bfa7ef7fb47372",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "485.3740000000002",
+    "SMILES": "CN1C(N)=N[C@](C)(c2cc(-n3[se]c4cc(F)ccc4c3=O)ccc2F)CS1(=O)=O"
+  },
+  {
+    "Graph_ID": "G_ad997d4b9aee5984ba2806f6",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "375.67300000000006",
+    "SMILES": "O=c1c2c(Cl)cccc2[se]n1-c1ccc2cccc(O)c2n1"
+  },
+  {
+    "Graph_ID": "G_b1338ccadd5f123351f7ccee",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "430.1800000000001",
+    "SMILES": "O=[N+]([O-])c1ccc(C[Se][Se]Cc2ccc([N+](=O)[O-])cc2)cc1"
+  },
+  {
+    "Graph_ID": "G_b21b68d1f3b4bb079adc0ed2",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "359.2180000000001",
+    "SMILES": "O=c1c2c(F)cccc2[se]n1-c1ccc2cccc(O)c2n1"
+  },
+  {
+    "Graph_ID": "G_c1ebca22a7320cd72fc54a40",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "441.4410000000003",
+    "SMILES": "CCC([Se]c1ccc2ccccc2c1)c1nc(N)nc(N2CCN(C)CC2)n1"
+  },
+  {
+    "Graph_ID": "G_cacbf9504e1f94e95bdacec8",
+    "Elements": "Pb",
+    "Radical_electrons": 3,
+    "MW": "1279.9319999999987",
+    "SMILES": "Cc1ncsc1-c1ccc(CNC(=O)[C@@H]2C[C@@H](O)CN2C(=O)[C@@H](NC(=O)[C@H]([CH2][Pb])NC(=O)COCCOCCOCCNC(=O)C[C@@H]2N=C(c3ccc(Cl)cc3)c3c(sc(C)c3C)-n3c(C)nnc32)C(C)(C)C)cc1"
+  },
+  {
+    "Graph_ID": "G_de3f7402cb3b32c6bfcc7c53",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "441.4410000000002",
+    "SMILES": "CN1CCN(c2nc(N)nc(C(C)(C)[Se]c3ccc4ccccc4c3)n2)CC1"
+  },
+  {
+    "Graph_ID": "G_e9929627078b1f36643d61ff",
+    "Elements": "Se",
+    "Radical_electrons": 0,
+    "MW": "369.27500000000003",
+    "SMILES": "CC[C@H](CC(=O)c1cc2cc(OC)c(OC)cc2[se]1)C(=O)O"
+  }
+]
