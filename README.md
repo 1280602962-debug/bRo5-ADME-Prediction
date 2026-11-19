@@ -6,23 +6,25 @@
 
 数据索引、审核报告、复现脚本、可直接读取的工作集及全量原始材料均已归档。完整性检查结果见 `verification/remote_verification.json` 和 Releases 中的 `UPLOAD_VERIFIED.json`。模型尚待训练，正式终点、标签聚合和验证划分仍需冻结。
 
-## 当前正式执行协议（V2.1 审稿后执行细则，2026-11-19）
+## 当前正式执行协议（V2.2 数据高效迁移与构象感知选择，2026-11-19）
 
-[正式 V2.1 执行协议](protocols/v2.1/BRO5_EXECUTION_PROTOCOL_V2.1.md) 为当前执行入口，继承[六阶段增强版 V2.0](protocols/BRO5_EXECUTION_PROTOCOL_V2_20261119.md) 和[历史 V1.0](protocols/BRO5_EXECUTION_PROTOCOL_V1_20261119.md) 的未变更条款。历史协议和数据快照保留。
+[正式V2.2执行协议](protocols/v2.2/BRO5_EXECUTION_PROTOCOL_V2.2.md) 为当前入口，规范性继承[审稿后V2.1](protocols/v2.1/BRO5_EXECUTION_PROTOCOL_V2.1.md)、[V2.0](protocols/BRO5_EXECUTION_PROTOCOL_V2_20261119.md)、[V1.0](protocols/BRO5_EXECUTION_PROTOCOL_V1_20261119.md) 未变更条款。历史协议及原始快照保留。
 
-V2.1 维持六阶段 A–F 及 Caco-2 A→B 主终点、PAMPA 独立重复、500–700 Da 主评价、>700 Da 全局封存。唯一主要比较 H1 为完整2D人群中 RF+2D 的 B+N 与 B+M 来源等权 MAE 差；H2/H3 限定于同样本3D成功子集；H4 为预登记匹配病例的机制一致性分析。深度学习、3D和MD仍属于计划研究，失败不缩减H1或无限拖延核心训练。
+V2.2 保留A–F六阶段、Caco-2 A→B主终点、PAMPA独立复现、500<MW≤700 Da非大环主评价及>700 Da严格全局封存；H1/P01为唯一主要比较，H2/H3为D3D同样本3D消融及交互，H4为匹配机制病例。新增C02等样本D-MPNN联合训练/微调和D05构象感知供体选择（固定RF-2D，训练侧独立结构参考集R及候选池，等预算、同MW配额）；DS01和TL01为预登记扩展比较FTRANSFER。C03 Caco-2/PAMPA多任务为条件性，构象加权、全网络微调与联合表征不默认全排列。
 
-| 执行文件 | 用途 |
+| V2.2执行文件 | 用途 |
 | --- | --- |
-| [comparison_registry.csv](protocols/v2.1/comparison_registry.csv) | 主要/次要比较及多重检验家族 |
-| [run_matrix.csv](protocols/v2.1/run_matrix.csv) | 分阶段运行块模板（非已运行任务） |
-| [descriptor_stability_plan.md](protocols/v2.1/descriptor_stability_plan.md) | 实际入模构象特征的分层稳定性 |
-| [3d_eligibility_rules.json](protocols/v2.1/3d_eligibility_rules.json) | 三维资格、失败分类与覆盖 |
-| [md_selection_protocol.md](protocols/v2.1/md_selection_protocol.md) | 唯一病例标签、匹配、收敛与解释边界 |
-| [compute_budget.json](protocols/v2.1/compute_budget.json) | 试算、重试、延长上限及待锁定物理资源 |
-| [stage_acceptance_checklist.md](protocols/v2.1/stage_acceptance_checklist.md) | 六阶段验收和失败处置 |
+| [transfer_learning_plan.md](protocols/v2.2/transfer_learning_plan.md) | 同样本联合/微调、总优化步数及负迁移 |
+| [donor_selection_plan.md](protocols/v2.2/donor_selection_plan.md) | 参考结构成本、固定池、构象距离与供体选择 |
+| [multitask_plan.md](protocols/v2.2/multitask_plan.md) | 条件性多任务、跨任务泄漏和辅助标签预算 |
+| [comparison_registry.csv](protocols/v2.2/comparison_registry.csv) | 完整继承比较及新增比较家族 |
+| [run_matrix.csv](protocols/v2.2/run_matrix.csv) | 完整计划运行块与启动门槛 |
+| [compute_budget.json](protocols/v2.2/compute_budget.json) | 原资源边界及新增任务上限 |
+| [acceptance_addendum.md](protocols/v2.2/acceptance_addendum.md) | 新模块验收与停止规则 |
 
-当前交付为研究协议及计划模板，未执行真实数据修订、容量复算、模型训练或分子模拟；实际运行矩阵、资源上限及pilot容差待补齐并签署。立即推进 A/B，先冻结数据及严格划分，再进行首轮二维主要比较，不等待3D或MD。最终外推须在全部拟评价模型和配置锁定之后进行。
+三维资格、构象稳定性与MD病例规则继续使用V2.1的 [3D资格](protocols/v2.1/3d_eligibility_rules.json)、[构象稳定性](protocols/v2.1/descriptor_stability_plan.md)、[MD选择](protocols/v2.1/md_selection_protocol.md)及[阶段验收](protocols/v2.1/stage_acceptance_checklist.md)。
+
+当前只归档协议和模板，未完成数据逐行修订、样本与划分容量复算、正式训练、构象或MD。GPU/CPU和存储需实测后锁定。立即执行A/B，后续开展C/D；E按质量及资源验收，F前锁定全部拟评价方法。扩展模块失败不更改H1与封存边界。
 
 ## 2026-11-19 最新数据核对（候选，未冻结）
 
@@ -81,6 +83,6 @@ python scripts/restore_snapshot.py --destination restored_bro5
 
 ## 研究问题
 
-在共同基础训练集上，分别加入等量的常规分子量非大环、高分子量大环和高分子量非大环数据，比较其预测增广贡献。**Caco-2 A→B 为主终点，PAMPA 独立重复，500<MW≤700 Da 非大环为主评价空间，MW>700 Da 非大环为预先封存的严格外推留出集。** 先纠错与冻结数据，再完成来源隔离及预算复算，随后在固定样本上开展等预算增广、二维/三维分子表征与深度学习对照，并以代表分子的溶剂依赖构象动力学辅助解释，最终进行锁定外推评价。
+在共同基础训练集上，分别加入等量的常规分子量非大环、高分子量大环和高分子量非大环数据，比较其预测增广贡献。**Caco-2 A→B 为主终点，PAMPA 独立重复，500<MW≤700 Da 非大环为主评价空间，MW>700 Da 非大环为预先封存的严格外推留出集。** 先纠错与冻结数据，再完成来源隔离及预算复算，随后在固定样本上开展等预算增广、二维/三维表征、深度学习、等样本微调及训练侧构象感知供体选择，以代表分子的溶剂依赖构象动力学辅助解释，最终进行锁定外推评价。
 
 上游数据库和文献文件的权利及使用条件继续适用。各文件原有来源和许可说明随材料保留。
