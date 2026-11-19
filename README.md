@@ -1,10 +1,23 @@
 # bRo5 permeability prediction
 
-高分子量非大环化合物的膜渗透性预测及训练数据组成研究。数据快照日期为 2026-11-18。
+高分子量非大环化合物的膜渗透性预测及训练数据组成研究。数据快照日期为 2026-11-18。 最近一次项目核对增量日期为 2026-11-19。
 
 ## 当前进度
 
 数据索引、审核报告、复现脚本、可直接读取的工作集及全量原始材料均已归档。完整性检查结果见 `verification/remote_verification.json` 和 Releases 中的 `UPLOAD_VERIFIED.json`。模型尚待训练，正式终点、标签聚合和验证划分仍需冻结。
+
+## 2026-11-19 最新数据核对（候选，未冻结）
+
+项目内最新核对已记录：PD-L1 来源 17 条记录由 Caco-2 改归 MDCKII-WT；CB30、CB31 补入 Caco-2 A→B 独立测量，分别为 25.8、21.7 × 10⁻⁶ cm/s；Rzepiela CSV 与官方记录匹配 3,348 条，确认 log10(Peff)（cm/s）。逐行修订尚未落实到下列 2026-11-18 压缩工作集。
+
+| 终点 | 500 < MW ≤ 700 Da 非大环候选 | MW > 700 Da 非大环候选 | 500 < MW ≤ 700 Da 大环供体 |
+| --- | ---: | ---: | ---: |
+| PAMPA | 764 | 144 | 1,481 |
+| Caco-2 A→B | 600 | 88 | 207 |
+
+PAMPA 的 144 个高分子量非大环候选含 20 个无环肽来源结构，排除该类后为 124（敏感性口径）。Rzepiela 的 120 组 BAS 身份歧义、54 条 −8 值的检测限语义、Kim 协议及其他结构冲突仍待核实。上述为项目内报告的最新候选数量，并非本次重新计算的训练集或正式冻结人数。
+
+详见 [11 月 19 日增量核对记录](data/current_design_audit_20261119/AUDIT_UPDATE_20261119.md) 和 [候选分组统计 CSV](data/current_design_audit_20261119/candidate_group_counts.csv)。原始快照及校验记录继续保留，未伪造新的逐行数据或哈希。
 
 ## 数据入口
 
@@ -13,6 +26,7 @@
 | `data/curated/working_graph_study_labels.csv.gz` | 当前保守工作集的结构、来源、任务和暂定渗透性标签 |
 | `data/curated/split_eligible_working_labels.csv.gz` | 来源折处理后的划分工作集 |
 | `data/curated/molecule_groups.csv.gz` | 分子图、SMILES、分子量、环结构筛选和化学分组 |
+| `data/current_design_audit_20261119/` | 最新候选统计及增量核对记录（未物化为逐行数据） |
 | `data/current_design_audit_20261118/` | 当前方案的数量、划分容量、冲突清单及独立核查结果 |
 | `data/bro5_stage2/` | 来源、终点和化学分组审核记录 |
 | `data/bro5_stage3/` | 原文证据、结构修订、检测限及身份冲突记录 |
@@ -38,7 +52,7 @@ Pandas 可直接读取 `.csv.gz`。同一分子可能有多个来源标签，记
 python scripts/restore_snapshot.py --destination restored_bro5
 ```
 
-## 当前数据范围
+## 2026-11-18 基线快照的数据范围（未按 11 月 19 日修订重算）
 
 | 终点 | 保守工作集中的不同结构 | 分子–来源标签 | MW>500 Da 非大环结构 |
 | --- | ---: | ---: | ---: |
