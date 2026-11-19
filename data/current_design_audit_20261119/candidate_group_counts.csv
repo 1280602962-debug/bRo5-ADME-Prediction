@@ -1,0 +1,8 @@
+audit_date,endpoint,group,mw_lower_exclusive_da,mw_upper_inclusive_da,candidate_count,status,notes
+2026-11-19,PAMPA,nonmacrocycle,500,700,764,PROVISIONAL,reported project audit count
+2026-11-19,PAMPA,nonmacrocycle,700,,144,PROVISIONAL,includes 20 acyclic peptide source structures
+2026-11-19,PAMPA,macrocycle_donor,500,700,1481,PROVISIONAL,reported project audit count
+2026-11-19,Caco-2 A-to-B,nonmacrocycle,500,700,600,PROVISIONAL,reported project audit count
+2026-11-19,Caco-2 A-to-B,nonmacrocycle,700,,88,PROVISIONAL,reported project audit count
+2026-11-19,Caco-2 A-to-B,macrocycle_donor,500,700,207,PROVISIONAL,reported project audit count
+2026-11-19,PAMPA,nonmacrocycle_excluding_acyclic_peptide_source,700,,124,SENSITIVITY_ONLY,144 minus 20; not a frozen inclusion rule
