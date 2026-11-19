@@ -1,0 +1,166 @@
+{
+  "version": "2.2",
+  "status": "DESIGN_TEMPLATE_PENDING_PILOT_AND_RESOURCE_APPROVAL",
+  "policy": "No full factorial by default; no performance-driven retries; do not block H1 on expansion failure",
+  "resource_caps": {
+    "cpu_core_hours": null,
+    "gpu_hours": null,
+    "storage_gb": null,
+    "job_walltime_hours": null,
+    "available_hardware": null,
+    "approval": null
+  },
+  "batch_gate": "Non-null actual caps and measured pilot cost required before corresponding batch; limited pilot must separately fit available allocation",
+  "model": {
+    "donor_seeds": [
+      17,
+      29,
+      42,
+      71,
+      101,
+      137,
+      271,
+      314,
+      577,
+      911
+    ],
+    "outer_folds_priority": [
+      5,
+      4,
+      3
+    ],
+    "inner_folds_max": 3,
+    "dmppn_grid_max_configs": 8,
+    "epochs_max": 100,
+    "early_stopping_patience": 15,
+    "fixed_epoch_fallback_proposed": 50,
+    "technical_retry_max": 1,
+    "initialization_repeats_primary": 1,
+    "example_factorial_outer_fits": 800
+  },
+  "L1": {
+    "pilot_graphs_min": 60,
+    "pilot_graphs_max": 100,
+    "candidate_conformers": [
+      50,
+      100,
+      200
+    ],
+    "pilot_seed_count": 3,
+    "retained_cap": 50,
+    "technical_retry_max": 1,
+    "difficult_graph_extension_max": 1,
+    "extension_candidate_cap": 400
+  },
+  "L2": {
+    "pilot_graphs": [
+      12,
+      20
+    ],
+    "target_graphs": [
+      100,
+      300
+    ],
+    "planned_solvents": 2,
+    "technical_retry_max": 1,
+    "additional_search_max": 1,
+    "production_search_limits": null
+  },
+  "MD": {
+    "pilot_graphs": [
+      4,
+      8
+    ],
+    "target_graphs": [
+      20,
+      40
+    ],
+    "environments": 2,
+    "replicas": 3,
+    "initial_production_ns": 100,
+    "technical_retry_max": 1,
+    "convergence_extension_max": 1,
+    "production_ns_per_replica_cap": 200,
+    "aggregate_initial_production_us": [
+      12,
+      24
+    ],
+    "metadynamics_protocol_and_cap": null,
+    "metadynamics_gate": "pre-register time, number of replicas, convergence criteria and separate resource cap before use; no indefinite extension"
+  },
+  "freeze_before_batch": [
+    "observed conformer time and peak storage",
+    "model fit time and memory",
+    "MD ns/day and trajectory storage",
+    "run_matrix_expanded and cost estimates",
+    "actual allocated caps",
+    "prioritized scope and stop rules"
+  ],
+  "degradation_priority": [
+    "P0 H1 source isolated primary and locked holdout",
+    "P1 original graph baseline and H2/H3 matched factorial where feasible; preserve core source/FP06 and endpoint replication",
+    "P1 C02 and D05 core extension; if insufficient resources declare block inability and do not vary P01",
+    "P2 D06 and C03 if capacity and leakage pass; L2 and matched MD with separate resources",
+    "P3 full fine-tune sensitivity and other optional models/weighting"
+  ],
+  "on_exhaustion": "Stop affected optional block, save pending/failure status and rationale; never borrow holdout data; change P01 only by capacity rules before performance.",
+  "TL": {
+    "endpoint": "Caco-2",
+    "split": "SOURCE_CONNECTIVITY",
+    "one_budget": true,
+    "logical_strategies": 8,
+    "max_outer_fold_seed_pairs": 50,
+    "max_outer_tasks_including_controls": 400,
+    "minimum_new_tasks_if_all_four_controls_reused": 200,
+    "additional_full_finetune_N_sensitivity_cap": 50,
+    "technical_retry_max": 1,
+    "initial_B_epochs_proposed": 50,
+    "initial_head_epochs_proposed": 30,
+    "matched_total_optimizer_updates": true,
+    "first_round_hyperparameter_search": "fixed configuration; pilot inside training partitions only",
+    "holdout_max_tasks": 30
+  },
+  "DS": {
+    "endpoint": "Caco-2",
+    "split": "SOURCE_CONNECTIVITY",
+    "population": "D3D_R_reserved",
+    "reference_sizes_priority": [
+      25,
+      10
+    ],
+    "donor_types": [
+      "M",
+      "N"
+    ],
+    "strategies": [
+      "RAND",
+      "2D",
+      "3D",
+      "HYB"
+    ],
+    "hybrid_alpha": 0.5,
+    "nearest_reference_count": 5,
+    "max_outer_fits_including_random_control": 400,
+    "strict_sensitivity_max_fits": 200,
+    "holdout_max_fits": 40,
+    "technical_retry_max": 1,
+    "weighting_and_joint_representation": "not scheduled; separate register and approval required"
+  },
+  "MT": {
+    "conditional": true,
+    "primary_endpoint": "Caco-2",
+    "auxiliary_endpoint": "PAMPA compatible coefficient",
+    "aux_graph_budget_priority": [
+      50,
+      25
+    ],
+    "groups": [
+      "MT-STL",
+      "MT-MTL"
+    ],
+    "max_outer_fits_including_stl": 100,
+    "technical_retry_max": 1,
+    "mtl_3d": "not scheduled"
+  },
+  "extension_budget_note": "Counts are maximum planned successful logical tasks at 5 folds and 10 seeds, not wall time; inner pilot, technical retry, existing V2.1 blocks and holdout cost separately enumerated. Reuse only exact input/config/seed/optimizer schedule. Before batch, expand run matrix, measure costs and lock actual resource caps. No automatic combination with every endpoint or budget."
+}
