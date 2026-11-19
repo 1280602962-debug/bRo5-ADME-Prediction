@@ -6,25 +6,25 @@
 
 数据索引、审核报告、复现脚本、可直接读取的工作集及全量原始材料均已归档。完整性检查结果见 `verification/remote_verification.json` 和 Releases 中的 `UPLOAD_VERIFIED.json`。模型尚待训练，正式终点、标签聚合和验证划分仍需冻结。
 
-## 当前正式执行协议（V2.2 数据高效迁移与构象感知选择，2026-11-19）
+## 当前正式执行协议（V2.3 立项审查后有限修订，2026-11-19）
 
-[正式V2.2执行协议](protocols/v2.2/BRO5_EXECUTION_PROTOCOL_V2.2.md) 为当前入口，规范性继承[审稿后V2.1](protocols/v2.1/BRO5_EXECUTION_PROTOCOL_V2.1.md)、[V2.0](protocols/BRO5_EXECUTION_PROTOCOL_V2_20261119.md)、[V1.0](protocols/BRO5_EXECUTION_PROTOCOL_V1_20261119.md) 未变更条款。历史协议及原始快照保留。
+[正式V2.3执行协议](protocols/v2.3/BRO5_EXECUTION_PROTOCOL_V2.3.md) 为当前执行入口，规范性继承[数据迁移V2.2](protocols/v2.2/BRO5_EXECUTION_PROTOCOL_V2.2.md)、[审稿后V2.1](protocols/v2.1/BRO5_EXECUTION_PROTOCOL_V2.1.md)、[V2.0](protocols/BRO5_EXECUTION_PROTOCOL_V2_20261119.md)和[V1.0](protocols/BRO5_EXECUTION_PROTOCOL_V1_20261119.md)未变更条款。原始数据及历史协议保留。
 
-V2.2 保留A–F六阶段、Caco-2 A→B主终点、PAMPA独立复现、500<MW≤700 Da非大环主评价及>700 Da严格全局封存；H1/P01为唯一主要比较，H2/H3为D3D同样本3D消融及交互，H4为匹配机制病例。新增C02等样本D-MPNN联合训练/微调和D05构象感知供体选择（固定RF-2D，训练侧独立结构参考集R及候选池，等预算、同MW配额）；DS01和TL01为预登记扩展比较FTRANSFER。C03 Caco-2/PAMPA多任务为条件性，构象加权、全网络微调与联合表征不默认全排列。
+V2.3 保留A–F六阶段、Caco-2 A→B主终点、PAMPA独立复现、500<MW≤700 Da非大环主评价、>700 Da严格全局封存。H1/P01唯一主要比较、H2/H3、匹配H4、TL01及DS01不改变。新增纯ECFP4强二维供体选择基线D07、锁定外推F06、无标签供体选择重叠及覆盖诊断、先导估计精度分析、L1/L2和机制关联诊断；保留条件性多任务，不新增复杂神经网络或全排列。创新主张须对标Steinbauer等2024及相关研究，尚未确认首创。
 
-| V2.2执行文件 | 用途 |
+| V2.3文件 | 用途 |
 | --- | --- |
-| [transfer_learning_plan.md](protocols/v2.2/transfer_learning_plan.md) | 同样本联合/微调、总优化步数及负迁移 |
-| [donor_selection_plan.md](protocols/v2.2/donor_selection_plan.md) | 参考结构成本、固定池、构象距离与供体选择 |
-| [multitask_plan.md](protocols/v2.2/multitask_plan.md) | 条件性多任务、跨任务泄漏和辅助标签预算 |
-| [comparison_registry.csv](protocols/v2.2/comparison_registry.csv) | 完整继承比较及新增比较家族 |
-| [run_matrix.csv](protocols/v2.2/run_matrix.csv) | 完整计划运行块与启动门槛 |
-| [compute_budget.json](protocols/v2.2/compute_budget.json) | 原资源边界及新增任务上限 |
-| [acceptance_addendum.md](protocols/v2.2/acceptance_addendum.md) | 新模块验收与停止规则 |
+| [closest_work_register.md](protocols/v2.3/closest_work_register.md) | 近邻论文、实际读取的第三方skills及创新边界 |
+| [donor_diagnostics_addendum.md](protocols/v2.3/donor_diagnostics_addendum.md) | ECFP-only对照、覆盖、选择重叠及构象诊断 |
+| [precision_plan.md](protocols/v2.3/precision_plan.md) | 训练侧先导精度、来源/组件级统计 |
+| [pilot_gate_plan.md](protocols/v2.3/pilot_gate_plan.md) | 有限证据恢复、pilot及正式运行准入 |
+| [comparison_registry.csv](protocols/v2.3/comparison_registry.csv) | 完整继承统计比较及新增ECFP辅助比较 |
+| [run_matrix.csv](protocols/v2.3/run_matrix.csv) | 原21类运行块及新增D07/F06 |
+| [compute_budget.json](protocols/v2.3/compute_budget.json) | 原计算上限、新基线及pilot上限 |
 
-三维资格、构象稳定性与MD病例规则继续使用V2.1的 [3D资格](protocols/v2.1/3d_eligibility_rules.json)、[构象稳定性](protocols/v2.1/descriptor_stability_plan.md)、[MD选择](protocols/v2.1/md_selection_protocol.md)及[阶段验收](protocols/v2.1/stage_acceptance_checklist.md)。
+专项方案继续使用V2.2的[迁移学习](protocols/v2.2/transfer_learning_plan.md)、[供体选择](protocols/v2.2/donor_selection_plan.md)、[多任务](protocols/v2.2/multitask_plan.md)、[追加验收](protocols/v2.2/acceptance_addendum.md)及V2.1的[三维资格](protocols/v2.1/3d_eligibility_rules.json)、[构象稳定性](protocols/v2.1/descriptor_stability_plan.md)、[MD选择](protocols/v2.1/md_selection_protocol.md)、[阶段验收](protocols/v2.1/stage_acceptance_checklist.md)。
 
-当前只归档协议和模板，未完成数据逐行修订、样本与划分容量复算、正式训练、构象或MD。GPU/CPU和存储需实测后锁定。立即执行A/B，后续开展C/D；E按质量及资源验收，F前锁定全部拟评价方法。扩展模块失败不更改H1与封存边界。
+当前仅完成研究设计与模板，真实逐行数据、划分容量、3D覆盖、预测、模拟及硬件成本仍未验收。先A/B数据核查与受限pilot；通过对应门槛且实际资源签署后才能启动批量。扩展失败不更改H1或封存边界；全部拟评价模型与配置锁定后才开展F。V2.3不等于已经执行实验或确认JCIM录用。
 
 ## 2026-11-19 最新数据核对（候选，未冻结）
 
