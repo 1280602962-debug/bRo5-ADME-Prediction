@@ -6,13 +6,23 @@
 
 数据索引、审核报告、复现脚本、可直接读取的工作集及全量原始材料均已归档。完整性检查结果见 `verification/remote_verification.json` 和 Releases 中的 `UPLOAD_VERIFIED.json`。模型尚待训练，正式终点、标签聚合和验证划分仍需冻结。
 
-## 当前正式执行协议（V2.0 增强版，2026-11-19）
+## 当前正式执行协议（V2.1 审稿后执行细则，2026-11-19）
 
-[六阶段增强研究协议 V2.0](protocols/BRO5_EXECUTION_PROTOCOL_V2_20261119.md) 为当前执行入口，继承[历史四阶段协议 V1.0](protocols/BRO5_EXECUTION_PROTOCOL_V1_20261119.md) 的数据审计、隔离、预算和统计规范。V1.0 原文件保留，不覆盖历史快照。
+[正式 V2.1 执行协议](protocols/v2.1/BRO5_EXECUTION_PROTOCOL_V2.1.md) 为当前执行入口，继承[六阶段增强版 V2.0](protocols/BRO5_EXECUTION_PROTOCOL_V2_20261119.md) 和[历史 V1.0](protocols/BRO5_EXECUTION_PROTOCOL_V1_20261119.md) 的未变更条款。历史协议和数据快照保留。
 
-V2.0 的研究主线为训练数据组成与分子表征的联合研究：A 数据冻结及3D资格 → B 严格隔离、二维基线与等预算增广 → C XGBoost及D-MPNN → D 构象集、同样本2D/3D因子对照 → E 溶剂依赖CREST/xTB构象与MD/WT-MetaD机制试验 → F 锁定外推及适用域。主要比较仍为 Caco-2 的 RF+2D 非大环与大环增广的配对来源等权 MAE 差，新增三维表征交互效应 I_3D。PAMPA独立重复，3D子集须复算容量，模拟须通过参数和收敛检查。
+V2.1 维持六阶段 A–F 及 Caco-2 A→B 主终点、PAMPA 独立重复、500–700 Da 主评价、>700 Da 全局封存。唯一主要比较 H1 为完整2D人群中 RF+2D 的 B+N 与 B+M 来源等权 MAE 差；H2/H3 限定于同样本3D成功子集；H4 为预登记匹配病例的机制一致性分析。深度学习、3D和MD仍属于计划研究，失败不缩减H1或无限拖延核心训练。
 
-当前已归档研究设计；逐行修订、数据/划分/预算冻结、模型训练、3D采样和MD均待实施。拟议参数及样本规模须通过开发侧试算，不代表实测结果。第一轮二维训练不等待MD完成，严格外推标签评价在全部相关分析方案锁定后进行。
+| 执行文件 | 用途 |
+| --- | --- |
+| [comparison_registry.csv](protocols/v2.1/comparison_registry.csv) | 主要/次要比较及多重检验家族 |
+| [run_matrix.csv](protocols/v2.1/run_matrix.csv) | 分阶段运行块模板（非已运行任务） |
+| [descriptor_stability_plan.md](protocols/v2.1/descriptor_stability_plan.md) | 实际入模构象特征的分层稳定性 |
+| [3d_eligibility_rules.json](protocols/v2.1/3d_eligibility_rules.json) | 三维资格、失败分类与覆盖 |
+| [md_selection_protocol.md](protocols/v2.1/md_selection_protocol.md) | 唯一病例标签、匹配、收敛与解释边界 |
+| [compute_budget.json](protocols/v2.1/compute_budget.json) | 试算、重试、延长上限及待锁定物理资源 |
+| [stage_acceptance_checklist.md](protocols/v2.1/stage_acceptance_checklist.md) | 六阶段验收和失败处置 |
+
+当前交付为研究协议及计划模板，未执行真实数据修订、容量复算、模型训练或分子模拟；实际运行矩阵、资源上限及pilot容差待补齐并签署。立即推进 A/B，先冻结数据及严格划分，再进行首轮二维主要比较，不等待3D或MD。最终外推须在全部拟评价模型和配置锁定之后进行。
 
 ## 2026-11-19 最新数据核对（候选，未冻结）
 
