@@ -1,0 +1,71 @@
+{
+  "version": "2.1",
+  "status": "PLANNED_NOT_EXECUTED",
+  "population": "D3D subset of frozen D2D; H1 unaffected",
+  "initial_requirements": [
+    "confirmed molecular identity",
+    "relevant tetrahedral and double-bond stereo defined or documented unnecessary",
+    "valid standardized parent and frozen chemical state",
+    "record charge and unknown experimental pH"
+  ],
+  "never": [
+    "arbitrary assignment of unknown stereo as experimental identity",
+    "change D2D eligibility due to 3D failure",
+    "use holdout labels or prediction errors to select structures or features",
+    "treat stereoisomers or multiple chemical states as independent samples"
+  ],
+  "stages": [
+    "initial_eligibility",
+    "embedding",
+    "parameterization",
+    "geometry_and_optimization_QC",
+    "locked_feature_completeness",
+    "original_fold_capacity"
+  ],
+  "reason_codes": [
+    "IDENTITY_UNRESOLVED",
+    "STEREO_UNRESOLVED",
+    "STATE_UNRESOLVED",
+    "EMBED_FAIL",
+    "FORCEFIELD_UNSUPPORTED",
+    "OPT_NOT_CONVERGED",
+    "GEOMETRY_INVALID",
+    "FEATURE_NONFINITE",
+    "RESOURCE_LIMIT",
+    "OTHER_DOCUMENTED"
+  ],
+  "coverage": {
+    "denominators": [
+      "D2D_graphs",
+      "initial_eligible_graphs",
+      "successful_graphs",
+      "final_D3D_graphs"
+    ],
+    "strata": [
+      "endpoint",
+      "topology",
+      "MW_bin",
+      "flexibility",
+      "formal_charge",
+      "stereo",
+      "study_id",
+      "topology_x_MW"
+    ],
+    "counts": [
+      "graph_count",
+      "study_count",
+      "FP06_component_count",
+      "failed_by_reason",
+      "matched_donor_capacity"
+    ],
+    "holdout": "structure only until final lock"
+  },
+  "capacity": "original outer folds only; check V1 budget order at fixed folds; if no matched M/N budget H3 NOT_ESTIMABLE; separate H2 if valid",
+  "required_outputs": [
+    "structure_3d_eligibility.csv",
+    "3d_coverage_initial.csv",
+    "3d_coverage.csv",
+    "3d_fold_capacity.csv",
+    "3d_members_hash.json"
+  ]
+}
