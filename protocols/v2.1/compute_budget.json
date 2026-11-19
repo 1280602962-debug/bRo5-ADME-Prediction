@@ -1,0 +1,107 @@
+{
+  "version": "2.1",
+  "status": "DESIGN_TEMPLATE_PENDING_PILOT_AND_RESOURCE_APPROVAL",
+  "policy": "No full factorial by default; no performance-driven retries; do not block H1 on expansion failure",
+  "resource_caps": {
+    "cpu_core_hours": null,
+    "gpu_hours": null,
+    "storage_gb": null,
+    "job_walltime_hours": null,
+    "available_hardware": null,
+    "approval": null
+  },
+  "batch_gate": "Non-null actual caps and measured pilot cost required before corresponding batch; limited pilot must separately fit available allocation",
+  "model": {
+    "donor_seeds": [
+      17,
+      29,
+      42,
+      71,
+      101,
+      137,
+      271,
+      314,
+      577,
+      911
+    ],
+    "outer_folds_priority": [
+      5,
+      4,
+      3
+    ],
+    "inner_folds_max": 3,
+    "dmppn_grid_max_configs": 8,
+    "epochs_max": 100,
+    "early_stopping_patience": 15,
+    "fixed_epoch_fallback_proposed": 50,
+    "technical_retry_max": 1,
+    "initialization_repeats_primary": 1,
+    "example_factorial_outer_fits": 800
+  },
+  "L1": {
+    "pilot_graphs_min": 60,
+    "pilot_graphs_max": 100,
+    "candidate_conformers": [
+      50,
+      100,
+      200
+    ],
+    "pilot_seed_count": 3,
+    "retained_cap": 50,
+    "technical_retry_max": 1,
+    "difficult_graph_extension_max": 1,
+    "extension_candidate_cap": 400
+  },
+  "L2": {
+    "pilot_graphs": [
+      12,
+      20
+    ],
+    "target_graphs": [
+      100,
+      300
+    ],
+    "planned_solvents": 2,
+    "technical_retry_max": 1,
+    "additional_search_max": 1,
+    "production_search_limits": null
+  },
+  "MD": {
+    "pilot_graphs": [
+      4,
+      8
+    ],
+    "target_graphs": [
+      20,
+      40
+    ],
+    "environments": 2,
+    "replicas": 3,
+    "initial_production_ns": 100,
+    "technical_retry_max": 1,
+    "convergence_extension_max": 1,
+    "production_ns_per_replica_cap": 200,
+    "aggregate_initial_production_us": [
+      12,
+      24
+    ],
+    "metadynamics_protocol_and_cap": null,
+    "metadynamics_gate": "pre-register time, number of replicas, convergence criteria and separate resource cap before use; no indefinite extension"
+  },
+  "freeze_before_batch": [
+    "observed conformer time and peak storage",
+    "model fit time and memory",
+    "MD ns/day and trajectory storage",
+    "run_matrix_expanded and cost estimates",
+    "actual allocated caps",
+    "prioritized scope and stop rules"
+  ],
+  "degradation_priority": [
+    "P0 H1 source isolated primary",
+    "P1 graph baseline and H2/H3 matched factorial where feasible",
+    "P1 core source/FP06 sensitivity and endpoint replication where compatible",
+    "P2 high-quality ensembles and matched MD",
+    "P3 optional models and explanatory controls"
+  ],
+  "on_exhaustion": "Stop affected optional block, save pending/failure status and rationale; never borrow holdout data; change P01 only by capacity rules before performance."
+}
