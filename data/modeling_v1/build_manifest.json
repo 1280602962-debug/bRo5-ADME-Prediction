@@ -1,0 +1,27 @@
+{
+  "input_rows": 66771,
+  "decision_rows": 66771,
+  "exact_labels": 61118,
+  "held_after_aggregation": 1,
+  "auxiliary": "",
+  "pdl1_reclassified": 17,
+  "rzepiela": {
+    "n_rows": 3348,
+    "n_shared_smiles": 120,
+    "n_discordant_ids": 236,
+    "n_concordant_ids": 4,
+    "n_sentinel_ids": 48
+  },
+  "prospective_not_added": [
+    {
+      "compound": "CB30",
+      "reported_papp_1e-6_cm_s": 25.8,
+      "reason": "not present in base table; primary table not re-read; existing ChEMBL value 6.9 is inside the 17 MDCKII-WT rows"
+    },
+    {
+      "compound": "CB31",
+      "reported_papp_1e-6_cm_s": 21.7,
+      "reason": "not present in base table; primary table not re-read; existing ChEMBL value 3.9 is inside the 17 MDCKII-WT rows"
+    }
+  ]
+}
