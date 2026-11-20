@@ -1,0 +1,28 @@
+{
+  "rdkit": "2025.09.6",
+  "descriptor_names": [
+    "MW",
+    "HeavyAtomCount",
+    "MolLogP",
+    "TPSA",
+    "HBD",
+    "HBA",
+    "NumRotatableBonds",
+    "FractionCSP3",
+    "RingCount",
+    "NumAromaticRings",
+    "FormalCharge",
+    "MaxRingSize",
+    "TPSA_over_MW"
+  ],
+  "ecfp4": {
+    "radius": 2,
+    "n_bits": 2048,
+    "useChirality": false,
+    "useFeatures": false
+  },
+  "n_graphs_featurized": 2511,
+  "n_graphs_failed": 0,
+  "failed_graph_id": [],
+  "classification_mw": "frozen Data V1.0 MW; recomputed descriptor MW is not used for cohorts or bins"
+}

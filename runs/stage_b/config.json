@@ -1,0 +1,31 @@
+{
+  "data_commit": "5fa815634d0e3ceb4cd8ed1927ca1f006ebba2ee",
+  "endpoint": "Caco-2:AB",
+  "y": "log10(Papp [cm/s])",
+  "analysis_set": "caco2_ab_main",
+  "n_folds": 5,
+  "b": 500,
+  "k": 50,
+  "seeds": [17, 29, 42, 71, 101, 137, 271, 314, 577, 911],
+  "bootstrap": {"replicates": 10000, "seed": 271828, "unit": "study-SC connected component"},
+  "sample_weight": "1/n_labels_per_graph",
+  "models": {
+    "Median": "graph-equal weighted median",
+    "kNN": {"fingerprint": "ECFP4", "k": 5, "weight": "Tanimoto", "fallback": "weighted median"},
+    "Ridge": {"alpha": 1.0, "features": "13 descriptors", "impute": "training-row median", "scale": "StandardScaler fit on training rows"},
+    "RF": {"n_estimators": 500, "max_features": 0.5, "min_samples_leaf": 2, "max_depth": null, "bootstrap": "row-level", "features": "13 descriptors + ECFP4"}
+  },
+  "ecfp4": {"radius": 2, "n_bits": 2048, "useChirality": false, "useFeatures": false},
+  "descriptors": ["MW", "HeavyAtomCount", "MolLogP", "TPSA", "HBD", "HBA", "NumRotatableBonds", "FractionCSP3", "RingCount", "NumAromaticRings", "FormalCharge", "MaxRingSize", "TPSA_over_MW"],
+  "group_semantics": {
+    "Graph_ID": "standardized molecular graph",
+    "Connectivity_SMILES": "full connectivity; one budget slot, representative is the lexicographically smallest Graph_ID",
+    "connectivity_id": "inherited SC group, not full connectivity alone",
+    "fp06_component": "inherited fingerprint component; not recomputed",
+    "same_sc_policy": "different connectivities within one SC may co-occur in a training set"
+  },
+  "classification_mw": "frozen Data V1.0 MW",
+  "software": {"python_packages": {"numpy": "2.3.5", "pandas": "2.3.3", "scikit-learn": "1.8.0", "rdkit": "2025.09.6"}},
+  "resources": {"cpu_cores_used": 8, "wall_seconds": 942.56, "cpu_seconds": 5880.287, "successful_fits": 1378},
+  "primary_comparison": "P01 = source-equal MAE(B+N) - source-equal MAE(B+M), RF"
+}

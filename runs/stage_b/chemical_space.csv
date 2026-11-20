@@ -1,0 +1,9 @@
+record,component,n_draws,n_unique_graphs,MW_median,TPSA_median,MolLogP_median,HBD_median,HBA_median,RotB_median,arm,nearest_mean,nearest_mean_seed_std,nearest_median,y_median,y_mean
+donor_distribution,M,2500.0,168.0,565.5890000000003,127.24,3.510900000000002,3.0,7.0,5.0,,,,,,
+donor_distribution,N,2500.0,493.0,567.508,119.31,4.177600000000004,2.0,7.0,7.0,,,,,,
+train_test_nearest_tanimoto,,,,,,,,,,B,0.2610658171772957,0.00426766206986958,0.24535172998905183,,
+train_test_nearest_tanimoto,,,,,,,,,,BM,0.2617455530166626,0.004284532173490648,0.24599558979272843,,
+train_test_nearest_tanimoto,,,,,,,,,,BN,0.267478329539299,0.0028662230649789794,0.24825898170471192,,
+train_test_nearest_tanimoto,,,,,,,,,,BS,0.26268679231405256,0.00408335446004907,0.24675212800502777,,
+donor_label_y,M,,,,,,,,,,,,,-5.823908740944319,-5.770924093927411
+donor_label_y,N,,,,,,,,,,,,,-5.54515513999149,-5.581150456282972

@@ -1,0 +1,263 @@
+{
+  "status": "LOCKED",
+  "n_folds": 5,
+  "b": 500,
+  "k": 50,
+  "seeds": [
+    17,
+    29,
+    42,
+    71,
+    101,
+    137,
+    271,
+    314,
+    577,
+    911
+  ],
+  "quotas_by_fold": [
+    [
+      18,
+      16,
+      10,
+      6
+    ],
+    [
+      19,
+      15,
+      10,
+      6
+    ],
+    [
+      20,
+      17,
+      6,
+      7
+    ],
+    [
+      16,
+      18,
+      13,
+      3
+    ],
+    [
+      21,
+      14,
+      10,
+      5
+    ]
+  ],
+  "b02": {
+    "run": true,
+    "k": 25,
+    "nested_in_primary": true
+  },
+  "b03": {
+    "run": true,
+    "budget_b": 500,
+    "budget_k": 50,
+    "mode": "primary"
+  },
+  "b04": {
+    "run": true,
+    "budget_b": 500,
+    "budget_k": 25,
+    "mode": "nested25",
+    "dropped_study_by_fold": {
+      "0": "DOI:10.1038/nchembio.2203",
+      "1": "DOI:10.1038/nchembio.2203",
+      "2": "DOI:10.1038/nchembio.2203",
+      "3": "DOI:10.1021/acs.jmedchem.8b00802",
+      "4": "DOI:10.1038/nchembio.2203"
+    },
+    "reference": "B02"
+  },
+  "b05": {
+    "run": false,
+    "reason": "Data V1.0 has no comparable PAMPA auxiliary task"
+  },
+  "pilot": [
+    {
+      "outer_fold": 0,
+      "run": true,
+      "b": 250,
+      "k": 50,
+      "n_test_graphs": 204,
+      "n_test_studies": 60
+    },
+    {
+      "outer_fold": 1,
+      "run": true,
+      "b": 500,
+      "k": 50,
+      "n_test_graphs": 209,
+      "n_test_studies": 61
+    }
+  ],
+  "holdout_graphs": 106,
+  "holdout_labels": 167,
+  "linked_labels": 283,
+  "feature_failed_graphs": 0,
+  "held_crossfold_sc": 49,
+  "held_crossfold_labels": 212,
+  "attempts": [
+    {
+      "n_folds": 5,
+      "b": 500,
+      "k": 50,
+      "status": "feasible",
+      "per_fold": [
+        {
+          "n_small": 1120,
+          "macro_bins": [
+            55,
+            49,
+            30,
+            19
+          ],
+          "donor_bins": [
+            230,
+            88,
+            52,
+            32
+          ],
+          "common_bins": [
+            55,
+            49,
+            30,
+            19
+          ],
+          "common_total": 153,
+          "fold": 0,
+          "n_test_graphs": 107,
+          "n_test_labels": 108,
+          "n_test_studies": 31,
+          "n_train_labels": 1941,
+          "n_train_graphs": 1876
+        },
+        {
+          "n_small": 1142,
+          "macro_bins": [
+            58,
+            47,
+            32,
+            19
+          ],
+          "donor_bins": [
+            250,
+            105,
+            32,
+            20
+          ],
+          "common_bins": [
+            58,
+            47,
+            32,
+            19
+          ],
+          "common_total": 156,
+          "fold": 1,
+          "n_test_graphs": 98,
+          "n_test_labels": 108,
+          "n_test_studies": 30,
+          "n_train_labels": 1937,
+          "n_train_graphs": 1880
+        },
+        {
+          "n_small": 1172,
+          "macro_bins": [
+            45,
+            38,
+            13,
+            15
+          ],
+          "donor_bins": [
+            216,
+            103,
+            56,
+            32
+          ],
+          "common_bins": [
+            45,
+            38,
+            13,
+            15
+          ],
+          "common_total": 111,
+          "fold": 2,
+          "n_test_graphs": 101,
+          "n_test_labels": 101,
+          "n_test_studies": 29,
+          "n_train_labels": 1946,
+          "n_train_graphs": 1885
+        },
+        {
+          "n_small": 1277,
+          "macro_bins": [
+            31,
+            35,
+            25,
+            7
+          ],
+          "donor_bins": [
+            237,
+            104,
+            38,
+            22
+          ],
+          "common_bins": [
+            31,
+            35,
+            25,
+            7
+          ],
+          "common_total": 98,
+          "fold": 3,
+          "n_test_graphs": 104,
+          "n_test_labels": 104,
+          "n_test_studies": 31,
+          "n_train_labels": 1935,
+          "n_train_graphs": 1868
+        },
+        {
+          "n_small": 1145,
+          "macro_bins": [
+            63,
+            43,
+            32,
+            16
+          ],
+          "donor_bins": [
+            231,
+            96,
+            50,
+            22
+          ],
+          "common_bins": [
+            63,
+            43,
+            32,
+            16
+          ],
+          "common_total": 154,
+          "fold": 4,
+          "n_test_graphs": 105,
+          "n_test_labels": 109,
+          "n_test_studies": 32,
+          "n_train_labels": 1965,
+          "n_train_graphs": 1899
+        }
+      ]
+    }
+  ],
+  "group_semantics": {
+    "Graph_ID": "standardized molecular graph",
+    "Connectivity_SMILES": "full connectivity; one budget slot",
+    "connectivity_id": "SC group inherited from Scaffold_connectivity_group",
+    "fp06_component": "inherited Scaffold_FP06_component; not recomputed",
+    "budget_unit": "unique Graph_ID with one representative per Connectivity_SMILES",
+    "representative": "lexicographically smallest Graph_ID; labels are not used",
+    "same_sc_policy": "different connectivities in one SC may co-occur in training"
+  },
+  "weight": "each qualified label of a training graph receives sample_weight 1/n"
+}
