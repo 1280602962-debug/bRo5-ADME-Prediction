@@ -1,0 +1,33 @@
+{
+  "block": "C02",
+  "model": "D-MPNN",
+  "parent_commit": "135aa598d33b63a395d7d605f1d26d601ccc70cc",
+  "branch": "stage-b-20261120",
+  "prediction_dir": "work/bro5-stage-c/runs/stage_c/c02/pred",
+  "n_prediction_files": 400,
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "seeds": [
+    17,
+    29,
+    42,
+    71,
+    101,
+    137,
+    271,
+    314,
+    577,
+    911
+  ],
+  "endpoint": "log10(Papp cm/s)",
+  "mae_source": "mean across studies of the mean across graphs of the seed-averaged absolute error",
+  "bootstrap": "10000 study-cluster resamples, generator seed 271828, same helper as score_stage_c.py",
+  "contrast_sign": "estimate is source MAE of left minus source MAE of right; negative means left has lower error",
+  "registry_note": "in_c3_registry marks the five contrasts named in score_stage_c.py; the other rows use the same estimator",
+  "official_c3_bundle": "not written; this directory is the C02 summary only"
+}
