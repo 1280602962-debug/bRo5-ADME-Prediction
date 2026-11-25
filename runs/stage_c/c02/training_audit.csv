@@ -1,0 +1,9 @@
+arm,n,encoder_frozen,encoder_trainable,steps,scaler,n_reused,unique_hash_before,unique_hash_after,n_hash_changed
+TL-B,50,[False],[None],"[800, 850]",['none'],50,0,0,0
+TL-FM,50,[True],[None],[60],['reuse B'],0,50,50,0
+TL-FN,50,[True],[None],[60],['reuse B'],0,50,50,0
+TL-FS,50,[True],[None],[60],['reuse B'],0,50,50,0
+TL-JM,50,[False],[None],"[860, 910]",['reuse B'],0,50,50,50
+TL-JN,50,[False],[None],"[860, 910]",['reuse B'],0,50,50,50
+TL-JS,50,[False],[None],"[860, 910]",['reuse B'],0,50,50,50
+TL-N0,50,[False],[4],[60],['fit on N'],0,50,50,50
