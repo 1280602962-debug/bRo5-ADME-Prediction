@@ -1,0 +1,136 @@
+{
+  "metrics": [
+    {
+      "model": "N-only RF",
+      "mae_source": 0.6131539667025258,
+      "signed_source": 0.014459096696828861,
+      "rmse_seed_mean": 0.7436031771649148,
+      "r2_seed_mean": -0.11181572998700032,
+      "spearman_seed_mean": 0.04897060359719637,
+      "pred_std_over_y_std": 0.26049588236986754,
+      "n_labels": 530
+    },
+    {
+      "model": "N-only Median",
+      "mae_source": 0.6219636819534047,
+      "signed_source": -0.04791788960387173,
+      "rmse_seed_mean": 0.7423808416270677,
+      "r2_seed_mean": -0.10648981038092716,
+      "spearman_seed_mean": -0.19915208406116325,
+      "pred_std_over_y_std": 0.13498246686220378,
+      "n_labels": 530
+    },
+    {
+      "model": "TL-N0",
+      "mae_source": 0.688380248451174,
+      "signed_source": 0.04798320667378016,
+      "rmse_seed_mean": 0.8327664289173381,
+      "r2_seed_mean": -0.39462923033185815,
+      "spearman_seed_mean": 0.07359131487663342,
+      "pred_std_over_y_std": 0.49047941642427606,
+      "n_labels": 530
+    },
+    {
+      "model": "TL-FN",
+      "mae_source": 0.7086114653957043,
+      "signed_source": -0.014101561145463605,
+      "rmse_seed_mean": 0.8967534097830349,
+      "r2_seed_mean": -0.6194158192786429,
+      "spearman_seed_mean": 0.13515851192278916,
+      "pred_std_over_y_std": 0.7255269153289525,
+      "n_labels": 530
+    },
+    {
+      "model": "N-only Ridge",
+      "mae_source": 0.7194703053536726,
+      "signed_source": 0.04925142401992594,
+      "rmse_seed_mean": 0.8731181904573126,
+      "r2_seed_mean": -0.5353171872790748,
+      "spearman_seed_mean": -0.008003187362576913,
+      "pred_std_over_y_std": 0.4952826101026455,
+      "n_labels": 530
+    },
+    {
+      "model": "TL-JN",
+      "mae_source": 0.7198500395625731,
+      "signed_source": -0.057876789822081186,
+      "rmse_seed_mean": 0.9150249488937934,
+      "r2_seed_mean": -0.6842584792622655,
+      "spearman_seed_mean": 0.1746615775166413,
+      "pred_std_over_y_std": 0.7754277732574633,
+      "n_labels": 530
+    },
+    {
+      "model": "TL-B",
+      "mae_source": 0.7536618246408552,
+      "signed_source": -0.10123480290499129,
+      "rmse_seed_mean": 0.965529254039405,
+      "r2_seed_mean": -0.875060151766996,
+      "spearman_seed_mean": 0.1437551043850387,
+      "pred_std_over_y_std": 0.8346371271398118,
+      "n_labels": 530
+    }
+  ],
+  "deltas": [
+    {
+      "left": "N-only Median",
+      "right": "TL-N0",
+      "estimate": -0.06641656649776928,
+      "ci_low": -0.10151631924034436,
+      "ci_high": -0.03114459732109475,
+      "interval_excludes_zero": true,
+      "n_studies": 153,
+      "n_components": 153
+    },
+    {
+      "left": "N-only Ridge",
+      "right": "TL-N0",
+      "estimate": 0.031090056902498664,
+      "ci_low": 0.013670610189154029,
+      "ci_high": 0.048312702551405136,
+      "interval_excludes_zero": true,
+      "n_studies": 153,
+      "n_components": 153
+    },
+    {
+      "left": "N-only RF",
+      "right": "TL-N0",
+      "estimate": -0.0752262817486482,
+      "ci_low": -0.09846672125372993,
+      "ci_high": -0.0523955807872202,
+      "interval_excludes_zero": true,
+      "n_studies": 153,
+      "n_components": 153
+    },
+    {
+      "left": "TL-N0",
+      "right": "TL-FN",
+      "estimate": -0.02023121694453034,
+      "ci_low": -0.061448145466930185,
+      "ci_high": 0.021652439800977297,
+      "interval_excludes_zero": false,
+      "n_studies": 153,
+      "n_components": 153
+    },
+    {
+      "left": "TL-N0",
+      "right": "TL-JN",
+      "estimate": -0.03146979111139914,
+      "ci_low": -0.0741434232648337,
+      "ci_high": 0.012023482882458013,
+      "interval_excludes_zero": false,
+      "n_studies": 153,
+      "n_components": 153
+    },
+    {
+      "left": "TL-N0",
+      "right": "TL-B",
+      "estimate": -0.06528157618968122,
+      "ci_low": -0.11860256729552454,
+      "ci_high": -0.011278309619921196,
+      "interval_excludes_zero": true,
+      "n_studies": 153,
+      "n_components": 153
+    }
+  ]
+}

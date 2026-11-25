@@ -1,0 +1,67 @@
+{
+  "development_labels": 2643,
+  "development_graphs": 2511,
+  "g1_labels": 2431,
+  "holdout_excluded": true,
+  "random_seed": 20261125,
+  "eval_a_group": "Connectivity_SMILES",
+  "eval_b_group": "Scaffold_connectivity_group",
+  "inner": [
+    {
+      "n_folds": 3,
+      "n_held_sc": 3,
+      "n_validation_labels": 422,
+      "validation_by_fold": {
+        "0": 139,
+        "1": 141,
+        "2": 142
+      },
+      "outer_fold": 0
+    },
+    {
+      "n_folds": 3,
+      "n_held_sc": 2,
+      "n_validation_labels": 422,
+      "validation_by_fold": {
+        "0": 139,
+        "1": 139,
+        "2": 144
+      },
+      "outer_fold": 1
+    },
+    {
+      "n_folds": 3,
+      "n_held_sc": 5,
+      "n_validation_labels": 429,
+      "validation_by_fold": {
+        "0": 145,
+        "1": 138,
+        "2": 146
+      },
+      "outer_fold": 2
+    },
+    {
+      "n_folds": 3,
+      "n_held_sc": 4,
+      "n_validation_labels": 426,
+      "validation_by_fold": {
+        "0": 140,
+        "1": 139,
+        "2": 147
+      },
+      "outer_fold": 3
+    },
+    {
+      "n_folds": 3,
+      "n_held_sc": 4,
+      "n_validation_labels": 421,
+      "validation_by_fold": {
+        "0": 139,
+        "1": 140,
+        "2": 142
+      },
+      "outer_fold": 4
+    }
+  ],
+  "g1_equals_alldev_graphs": true
+}

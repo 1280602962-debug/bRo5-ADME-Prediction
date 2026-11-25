@@ -1,0 +1,9 @@
+{
+  "n_graphs": 2511,
+  "n_descriptors": 217,
+  "n_failed_molecules": 0,
+  "failed": [],
+  "seconds": 15.905,
+  "rdkit_version": "2025.09.6",
+  "identity_note": "Descriptor calculation does not change Graph_ID, stereo records, or frozen MW."
+}
