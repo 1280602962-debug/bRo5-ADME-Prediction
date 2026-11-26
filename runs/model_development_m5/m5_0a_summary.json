@@ -1,0 +1,31 @@
+{
+  "fits": 60,
+  "seeds": [
+    17,
+    42,
+    101
+  ],
+  "same_seed_within_fold": true,
+  "seed_not_derived_from_arm_name": true,
+  "replaces_m4_contrasts": false,
+  "contrasts": [
+    {
+      "contrast": "R3-R0",
+      "estimate": -0.015461604933814876,
+      "ci95_low": -0.03279322512990872,
+      "ci95_high": 0.0012302391812826147
+    },
+    {
+      "contrast": "R3-R1",
+      "estimate": -0.004671208228556711,
+      "ci95_low": -0.025317079923447172,
+      "ci95_high": 0.01641796928693004
+    },
+    {
+      "contrast": "R3-R2",
+      "estimate": -0.005127775026874115,
+      "ci95_low": -0.013757892967701562,
+      "ci95_high": 0.003129653099453396
+    }
+  ]
+}

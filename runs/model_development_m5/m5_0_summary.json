@@ -1,0 +1,23 @@
+{
+  "conformers": {
+    "part_files": 2281,
+    "eligible_graphs": 2176,
+    "missing_production_parts": 0,
+    "window_count_mismatches": 0,
+    "conformers_within_5kcal": 20702,
+    "summary_static": 2176,
+    "summary_ensemble": 1949
+  },
+  "measurements": {
+    "database_reentry_groups": 184,
+    "reentry_groups_with_disagreeing_values": 4,
+    "independent_id_groups": 7,
+    "independent_groups_with_repeated_same_id_rows": 0,
+    "interpretation": "Different measurement_id values are distinct database measurement records, not proof of independent experiments. Same-id duplicate rows were not treated as independent repeats."
+  },
+  "charge_rows": 9,
+  "reversible_flagged": 0,
+  "quaternary_flagged": 0,
+  "test_id_matches": 65,
+  "train_count_matches": 65
+}

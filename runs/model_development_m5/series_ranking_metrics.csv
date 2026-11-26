@@ -1,0 +1,7 @@
+model,pair_type,status,n_pairs,n_studies,reason
+M3_RF_F05,mmp,insufficient,0,0,no same-fold pair had a compatible non-missing protocol
+M3_RF_F04,mmp,insufficient,0,0,no same-fold pair had a compatible non-missing protocol
+M4_P4,mmp,insufficient,0,0,no same-fold pair had a compatible non-missing protocol
+M3_RF_F05,similarity,insufficient,0,0,no same-fold pair had a compatible non-missing protocol
+M3_RF_F04,similarity,insufficient,0,0,no same-fold pair had a compatible non-missing protocol
+M4_P4,similarity,insufficient,0,0,no same-fold pair had a compatible non-missing protocol

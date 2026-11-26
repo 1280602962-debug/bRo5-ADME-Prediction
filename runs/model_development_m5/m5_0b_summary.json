@@ -1,0 +1,18 @@
+{
+  "molecules": 40,
+  "mean_nonconverged_fraction": 0.0,
+  "membership_flips": 0,
+  "descriptor_threshold_molecules": 0,
+  "descriptor_threshold_fraction": 0.0,
+  "descriptor_threshold_fraction_by_request": {
+    "20": 0.0,
+    "50": 0.0,
+    "100": 0.0
+  },
+  "categorical_descriptor_bias": false,
+  "stereo_molecules": 0,
+  "stereo_atom_changes": 0,
+  "stereo_bond_changes": 0,
+  "pause_interpretation": false,
+  "same_embedding_for_strict_and_original": true
+}

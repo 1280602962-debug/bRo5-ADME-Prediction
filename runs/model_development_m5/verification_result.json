@@ -1,0 +1,17 @@
+{
+  "holdout_in_new_predictions": [],
+  "m4_paths_changed": [],
+  "m4_primary_contrasts": 6,
+  "m4_contrasts_unchanged_file": true,
+  "seed_values": [
+    17,
+    42,
+    101
+  ],
+  "arms_share_seeds": true,
+  "replaces_m4_contrasts": false,
+  "train_id_files": 145,
+  "measurement_caveat_present": true,
+  "pause_interpretation": false,
+  "pass": true
+}

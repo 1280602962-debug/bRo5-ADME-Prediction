@@ -1,0 +1,6 @@
+source_id,resolved,local_registry_before,retrieved
+PMC12750995,10.1021/acs.jmedchem.5c01499,0,"Zenodo Caco-2 sheet, 10 rows"
+PMC12933330,10.1021/jacsau.6c00033,0,five compound names; assay numbers not in the retrieved text
+10.1021/acs.jcim.5c01600,10.1021/acs.jcim.5c01600,1,local frozen records only
+10.1021/acs.jcim.6c00597,PubMed 42283410,0,abstract only; no row file
+arxiv:2610.07998,github xhudec2/protac-permeability,0,"combined_protacs.csv, 87 PAMPA rows"

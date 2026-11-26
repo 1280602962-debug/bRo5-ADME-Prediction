@@ -1,0 +1,10 @@
+Graph_ID,ionization_class,formal_charge,charged_n_not_nitro,quaternary_n,protonated_n,carboxylate
+G_e79d824ea500d0b8f2ca8170,permanent_charge,0,0,0,0,0
+G_eb027ec686614efddfa39323,permanent_charge,0,0,0,0,0
+G_4d7d23ac7d502cb8125a5e0b,permanent_charge,0,0,0,0,0
+G_537af29fa5d5bcc62cbd8839,permanent_charge,0,1,0,0,0
+G_b5b12a673a8403a3e59235c2,permanent_charge,0,0,0,0,0
+G_ebaf8e3201f1444d77eee8cf,permanent_charge,0,1,0,0,0
+G_0706d836c6239a809b3d9bb1,permanent_charge,0,0,0,0,0
+G_c1db1a394abd3597f6cb3ee7,permanent_charge,1,1,0,0,0
+G_f78b87e4b5125996df0ceb39,permanent_charge,0,1,0,0,0

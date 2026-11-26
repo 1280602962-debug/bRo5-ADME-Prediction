@@ -1,0 +1,6 @@
+x,y,spearman,n,causal
+MW,ens_Volume_median,0.9418394764012188,1949,False
+MW,ens_Rgyr_median,0.5859217076489059,1949,False
+TPSA,ens_PolarSASA_median,0.828962192825633,1949,False
+HBD,ens_IMHB_mean,0.548755288080924,1949,False
+HBA,ens_IMHB_mean,0.27962800437997565,1949,False

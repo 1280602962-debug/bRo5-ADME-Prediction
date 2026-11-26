@@ -1,0 +1,20 @@
+{
+  "xtb_version": "6.8.0",
+  "solvation": "ALPB water and chcl3; GBSA names H2O and CHCl3 were not used",
+  "molecules": 1,
+  "geometry_status": "matches_stored_m4_conformer",
+  "starts": 3,
+  "cpu_core_hours": 0.0036612468348660816,
+  "crest": "not_installed",
+  "l2c": "not_executed",
+  "formal_model": false,
+  "expanded_panel": false,
+  "same_geometry_proxy_kcal": [
+    -11.36,
+    -11.564,
+    -11.651
+  ],
+  "proxy_span_kcal": 0.291,
+  "local_opt_difference_span_kcal": 0.998,
+  "descriptor_response_consistent_across_starts": false
+}

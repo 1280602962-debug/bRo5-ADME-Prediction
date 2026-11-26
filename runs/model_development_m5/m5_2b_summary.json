@@ -1,0 +1,8 @@
+{
+  "mmp_pairs": 0,
+  "similarity_pairs": 0,
+  "informative_protocol_test_labels": 0,
+  "same_fold_same_study_graph_pairs_excluded_by_protocol": 2189,
+  "same_fold_same_study_studies_excluded_by_protocol": 86,
+  "conditions_not_relaxed": true
+}

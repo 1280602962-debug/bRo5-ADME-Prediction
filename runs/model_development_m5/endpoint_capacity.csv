@@ -1,0 +1,6 @@
+source_id,endpoint,raw_records,qualified_exact_labels,new_graphs,existing_graphs,sealed_graphs,usable_training_graphs_after_isolation,decision,censored_or_unretrieved,new_exact_graphs,new_exact_not_sealed
+10.1021/acs.jcim.5c01600,Caco-2:AB,32,0,0,32,32.0,0,already_in_frozen_holdout_not_reextracted,,,
+10.1021/acs.jmedchem.5c01499,Caco-2:AB_efflux_inhibited,10,8,7,3,,0,not_added_condition_differs_and_freeze_unchanged,2.0,5.0,0.0
+10.1021/jacsau.6c00033,Caco-2:AB,5,0,3,2,,0,values_not_retrieved_freeze_unchanged,5.0,0.0,0.0
+arxiv:2610.07998,PAMPA,87,68,5,82,,0,different_endpoint_censored_values_not_used_as_exact,19.0,1.0,0.0
+10.1021/acs.jcim.6c00597,multiple_public_assays,0,0,0,0,,0,row_level_compilation_not_retrieved_no_multitask,,,
