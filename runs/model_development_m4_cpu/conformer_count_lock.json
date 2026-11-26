@@ -1,0 +1,23 @@
+{
+  "rule": "MACRO prefix or NumRotatableBonds>=10 -> 100; else MW>500 -> 50; else 20",
+  "heavy_atom_symmetry_rmsd_dedup_angstrom": 0.5,
+  "embed_pruneRmsThresh_angstrom": 0.5,
+  "main_window_kcal": 5.0,
+  "sensitivity_window_kcal": 10.0,
+  "stability_molecules": 20,
+  "seed_unstable": 5,
+  "count_50_vs_100_unstable": 2,
+  "engineering_thresholds": {
+    "Rgyr_median_relative": 0.05,
+    "PolarSASA_median_relative": 0.05,
+    "PolarSASA_p10_relative": 0.1,
+    "IMHB_mean_absolute": 0.5,
+    "IMHB_fraction_absolute": 0.15,
+    "floors": {
+      "Rgyr": 0.5,
+      "PolarSASA": 5.0
+    }
+  },
+  "thresholds_are": "engineering stability references, not thermodynamic convergence",
+  "decision": "keep 20/50/100; do not reduce the 100-request set to finish sooner"
+}

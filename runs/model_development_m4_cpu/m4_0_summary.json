@@ -1,0 +1,6 @@
+{
+  "independent_repeat_groups": 7,
+  "independent_groups_with_eval_c_prediction": 2,
+  "variance_components": "not_fit",
+  "reason": "Cross-study compatible repeats are absent after removing missing-condition tokens, and independent within-study repeats are only a handful of groups."
+}

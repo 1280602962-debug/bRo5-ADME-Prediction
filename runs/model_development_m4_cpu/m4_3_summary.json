@@ -1,0 +1,11 @@
+{
+  "primary_contrast": "P4-P0",
+  "family_size": 6,
+  "xgb_added": false,
+  "inner_improved_folds": 3,
+  "ensemble_graphs": 1949,
+  "static_graphs": 2176,
+  "ion_graphs": 2511,
+  "ab_parameter_source": "fixed_ab",
+  "ab_inherits_evaluation_c_selection": false
+}

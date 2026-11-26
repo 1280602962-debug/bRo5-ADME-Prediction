@@ -1,0 +1,50 @@
+{
+  "tool": "MolGpKa",
+  "repository": "https://github.com/Xundrug/MolGpKa",
+  "commit": "4dc835219baad18c2e705274ac54d49597703966",
+  "weights": [
+    "models/weight_acid.pth",
+    "models/weight_base.pth"
+  ],
+  "environment": "/home/gwj/miniconda3/envs/m4_pka",
+  "torch_scatter": "pure torch scatter_add shim; torch-scatter had no wheel for torch 2.14.1+cpu",
+  "pka_definition": "microscopic site pKa emitted by MolGpKa after RDKit Uncharger",
+  "reference_ph": [
+    6.5,
+    7.4
+  ],
+  "reference_ph_meaning": "calculation environment, not the assay pH",
+  "development_graphs": 2511,
+  "prediction_ok": 2511,
+  "prediction_failure": 0,
+  "class_counts": {
+    "multi_site_or_zwitterion": 1992,
+    "multi_site": 360,
+    "single_base": 69,
+    "single_acid": 42,
+    "no_ionizable_site": 39,
+    "permanent_charge": 9
+  },
+  "hh_applicable": 111,
+  "pilot_graphs": 60,
+  "pilot_shortfall": [],
+  "sampl_molecules": 100,
+  "sampl_matched_mae": 0.6245445454545454,
+  "sampl_matched_pairs": 110,
+  "sampl_unmatched_experimental": 0,
+  "sampl_mw_min": 150.181,
+  "sampl_mw_max": 440.367,
+  "sampl_macrocycles": 0,
+  "sampl_multi_experimental": 9,
+  "model_columns": [
+    "molgpka_n_acid",
+    "molgpka_n_base",
+    "molgpka_has_acid",
+    "molgpka_has_base",
+    "molgpka_permanent",
+    "molgpka_min_acid_pka_x_has",
+    "molgpka_max_base_pka_x_has"
+  ],
+  "fractions_not_model_inputs": true,
+  "overlap_excluded_benchmark_files": "not published as separate files; not reconstructed"
+}

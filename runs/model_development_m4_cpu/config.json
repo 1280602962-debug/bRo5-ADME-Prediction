@@ -1,0 +1,35 @@
+{
+  "parent": "2b30eb687844e180f480dcb0bb90a3c610cfa233",
+  "branch": "model-development-m4-cpu",
+  "endpoint": "Caco-2 A->B log10(Papp [cm/s])",
+  "bootstrap_seed": 271828,
+  "bootstrap_draws": 10000,
+  "primary_contrast": "P4-P0",
+  "primary_family": [
+    "P2-P0",
+    "P3-P0",
+    "P4-P0",
+    "P4-P3",
+    "P5-P4",
+    "P5-P2"
+  ],
+  "exploratory_contrast": "P4-P1",
+  "bonferroni_family_size": 6,
+  "conformer_requests": {
+    "macro_or_rotatable_ge_10": 100,
+    "mw_gt_500_nonmacro": 50,
+    "other": 20
+  },
+  "rmsd_dedup_angstrom": 0.5,
+  "energy_window_kcal": 5,
+  "ionization_tool": "MolGpKa",
+  "ionization_commit": "4dc835219baad18c2e705274ac54d49597703966",
+  "reference_ph": [
+    6.5,
+    7.4
+  ],
+  "models": "fixed RF; fixed XGBoost only if four outer folds improve internally",
+  "xgb_added": false,
+  "crest": "not_installed",
+  "xtb": "not_installed"
+}

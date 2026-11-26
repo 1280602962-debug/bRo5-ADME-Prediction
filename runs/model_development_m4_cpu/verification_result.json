@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "holdout absent from ionization_features.csv.gz",
+      "passed": true,
+      "detail": "overlap 0"
+    },
+    {
+      "name": "holdout absent from l1_static_features.csv.gz",
+      "passed": true,
+      "detail": "overlap 0"
+    },
+    {
+      "name": "holdout absent from l1_ensemble_features.csv.gz",
+      "passed": true,
+      "detail": "overlap 0"
+    },
+    {
+      "name": "holdout absent from m4_oof_predictions.csv.gz",
+      "passed": true,
+      "detail": "overlap 0"
+    },
+    {
+      "name": "unspecified stereo excluded",
+      "passed": true,
+      "detail": "rows 332"
+    },
+    {
+      "name": "macrocycles request 100",
+      "passed": true,
+      "detail": "n 339"
+    },
+    {
+      "name": "low-MW nonmacrocycles request 20",
+      "passed": true,
+      "detail": "n 1560"
+    },
+    {
+      "name": "six primary contrasts retained",
+      "passed": true,
+      "detail": "['P2-P0', 'P3-P0', 'P4-P0', 'P4-P3', 'P5-P4', 'P5-P2']"
+    },
+    {
+      "name": "family size stays 6",
+      "passed": true,
+      "detail": "family"
+    },
+    {
+      "name": "P4_ensemble vs P0_ensemble labels",
+      "passed": true,
+      "detail": "430 vs 430"
+    },
+    {
+      "name": "P4_ensemble vs P3_ensemble labels",
+      "passed": true,
+      "detail": "430 vs 430"
+    },
+    {
+      "name": "P5_both vs P4_both labels",
+      "passed": true,
+      "detail": "430 vs 430"
+    },
+    {
+      "name": "P5_both vs P2_both labels",
+      "passed": true,
+      "detail": "430 vs 430"
+    },
+    {
+      "name": "train labels match P4_ensemble P0_ensemble",
+      "passed": true,
+      "detail": "per fold"
+    },
+    {
+      "name": "train labels match P5_both P2_both",
+      "passed": true,
+      "detail": "per fold"
+    },
+    {
+      "name": "condition audit present",
+      "passed": true,
+      "detail": "m4.0"
+    },
+    {
+      "name": "crest not claimed",
+      "passed": true,
+      "detail": "report"
+    }
+  ]
+}

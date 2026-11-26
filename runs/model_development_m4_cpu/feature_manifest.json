@@ -1,0 +1,55 @@
+{
+  "potential_sites": "RDKit SMARTS counts. Potential acid or base sites, not validated ionization.",
+  "molgpka": [
+    "molgpka_n_acid",
+    "molgpka_n_base",
+    "molgpka_has_acid",
+    "molgpka_has_base",
+    "molgpka_permanent",
+    "molgpka_min_acid_pka_x_has",
+    "molgpka_max_base_pka_x_has"
+  ],
+  "molgpka_not_in_model": [
+    "f_neutral_ph6_5",
+    "f_neutral_ph7_4",
+    "logD_neutral_proxy_ph6_5",
+    "logD_neutral_proxy_ph7_4"
+  ],
+  "l1_static": [
+    "static_Rgyr",
+    "static_NPR1",
+    "static_NPR2",
+    "static_MolecularVolume",
+    "static_MaximumDimension",
+    "static_TotalSASA",
+    "static_PolarSASA_NOH",
+    "static_PolarFraction",
+    "static_IMHB_count",
+    "static_available"
+  ],
+  "l1_ensemble": [
+    "ens_Rgyr_median",
+    "ens_Rgyr_p10",
+    "ens_Rgyr_iqr",
+    "ens_PolarSASA_median",
+    "ens_PolarSASA_p10",
+    "ens_PolarSASA_iqr",
+    "ens_PolarFraction_median",
+    "ens_PolarFraction_p10",
+    "ens_IMHB_mean",
+    "ens_IMHB_max",
+    "ens_IMHB_fraction",
+    "ens_NPR1_median",
+    "ens_NPR2_median",
+    "ens_Volume_median",
+    "ens_MaximumDimension_median"
+  ],
+  "not_model_inputs": [
+    "n_conformers",
+    "runtime",
+    "failure flags",
+    "sampling_status"
+  ],
+  "p4_uses": "ensemble_reliable graphs only",
+  "fallback": "labels without an ensemble use the pre-specified F04 random forest trained on the full G1 training fold"
+}
